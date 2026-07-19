@@ -1,0 +1,279 @@
+@keyframes lightning {
+  0%,
+  95%,
+  100% {
+    opacity: 0;
+  }
+  1%,
+  3% {
+    opacity: 0.6;
+    filter: brightness(1.4) contrast(1.2);
+  }
+  2% {
+    opacity: 0.2;
+    filter: brightness(1.2) contrast(1.1);
+  }
+  4% {
+    opacity: 0.4;
+    filter: brightness(1.3) contrast(1.15);
+  }
+}
+
+@keyframes lightningBolt {
+  0%,
+  96%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(0deg);
+  }
+  1%,
+  3% {
+    opacity: 0.7;
+    transform: scale(0.9) rotate(-3deg);
+  }
+  2% {
+    opacity: 0.4;
+    transform: scale(0.85) rotate(2deg);
+  }
+}
+
+@keyframes lightningStreak {
+  0%,
+  97%,
+  100% {
+    opacity: 0;
+    transform: translateY(0) scaleY(0);
+  }
+  1% {
+    opacity: 0.6;
+    transform: translateY(0) scaleY(1);
+  }
+  2% {
+    opacity: 0.4;
+    transform: translateY(5px) scaleY(0.8);
+  }
+  3% {
+    opacity: 0.2;
+    transform: translateY(10px) scaleY(0.6);
+  }
+}
+
+@keyframes atmosphericGlow {
+  0%,
+  95%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  1% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
+  3% {
+    opacity: 0.6;
+    transform: scale(1.5);
+  }
+  5% {
+    opacity: 0.4;
+    transform: scale(1.8);
+  }
+  7% {
+    opacity: 0.2;
+    transform: scale(2);
+  }
+}
+
+.lightning-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 6;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.lightning-flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 50% 15%, rgba(255, 255, 255, 0.9) 0%, rgba(173, 216, 230, 0.7) 15%, rgba(135, 206, 235, 0.5) 30%, rgba(70, 130, 180, 0.3) 50%, transparent 70%);
+  animation: lightning 2.2s infinite;
+  animation-delay: 0.8s;
+  filter: blur(1px);
+}
+
+.lightning-flash::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.4) 0%, transparent 40%);
+  animation: atmosphericGlow 2.5s infinite;
+  animation-delay: 0.9s;
+}
+
+.lightning-bolt {
+  position: absolute;
+  top: 6%;
+  right: 10%;
+  width: 90px;
+  height: 140px;
+  background: linear-gradient(45deg, transparent 35%, rgba(255, 255, 255, 1) 42%, rgba(173, 216, 230, 0.9) 47%, rgba(255, 255, 255, 1) 52%, rgba(135, 206, 235, 0.8) 57%, transparent 65%);
+  clip-path: polygon(15% 0%, 35% 15%, 28% 18%, 55% 65%, 48% 100%, 25% 58%, 35% 55%, 8% 25%);
+  animation: lightningBolt 2.4s infinite;
+  animation-delay: 0.7s;
+  filter: blur(0.8px) brightness(1.4) contrast(1.2);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(173, 216, 230, 0.6), 0 0 35px rgba(135, 206, 235, 0.4);
+}
+
+.lightning-bolt::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(173, 216, 230, 0.2) 30%, transparent 60%);
+  animation: lightningBolt 2.4s infinite;
+  animation-delay: 0.7s;
+  border-radius: 50%;
+}
+
+.lightning-bolt::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  animation: lightningBolt 2.8s infinite;
+  animation-delay: 0.8s;
+}
+
+@keyframes thunderWave {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.lightning-bolt::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: thunderWave 3s ease-out infinite;
+  animation-delay: 1.2s;
+}
+
+.lightning-streaks {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lightning-streak {
+  position: absolute;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(173, 216, 230, 0.6), transparent);
+  transform-origin: top;
+}
+
+.lightning-streak-1 {
+  top: 15%;
+  right: 18%;
+  width: 2px;
+  height: 40px;
+  animation: lightningStreak 3s infinite;
+  animation-delay: 1.2s;
+  transform: rotate(-20deg);
+}
+
+.lightning-streak-2 {
+  top: 12%;
+  right: 15%;
+  width: 1.5px;
+  height: 60px;
+  animation: lightningStreak 3.2s infinite;
+  animation-delay: 1.5s;
+  transform: rotate(-35deg);
+}
+
+.lightning-streak-3 {
+  top: 20%;
+  right: 20%;
+  width: 1px;
+  height: 30px;
+  animation: lightningStreak 2.8s infinite;
+  animation-delay: 1.8s;
+}
+
+@keyframes thunderRipple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+  25% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+.lightning-container::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: thunderRipple 2s ease-out infinite;
+  animation-delay: 1.2s;
+}
+
+.lightning-container::after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  width: 100px;
+  height: 100px;
+  border: 1px solid rgba(173, 216, 230, 0.4);
+  border-radius: 50%;
+  animation: thunderRipple 2s ease-out infinite;
+  animation-delay: 1.5s;
+}

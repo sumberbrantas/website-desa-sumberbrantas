@@ -1,0 +1,175 @@
+@keyframes rain {
+  0% {
+    transform: translateY(-100vh) translateX(0) scaleY(0.4);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+    transform: translateY(-90vh) translateX(1px) scaleY(1);
+  }
+  95% {
+    opacity: 1;
+    transform: translateY(90vh) translateX(min(25px, 4vw)) scaleY(1);
+  }
+  100% {
+    transform: translateY(100vh) translateX(min(30px, 5vw)) scaleY(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes drizzle {
+  0% {
+    transform: translateY(-100vh) translateX(0) scaleY(0.3);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.7;
+    transform: translateY(-85vh) translateX(0.5px) scaleY(1);
+  }
+  92% {
+    opacity: 0.7;
+    transform: translateY(85vh) translateX(10px) scaleY(1);
+  }
+  100% {
+    transform: translateY(100vh) translateX(15px) scaleY(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes heavyRain {
+  0% {
+    transform: translateY(-100vh) translateX(0) scaleY(0.5);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+    transform: translateY(-92vh) translateX(2px) scaleY(1);
+  }
+  96% {
+    opacity: 1;
+    transform: translateY(92vh) translateX(min(35px, 6vw)) scaleY(1.1);
+  }
+  100% {
+    transform: translateY(100vh) translateX(min(40px, 7vw)) scaleY(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes stormyRain {
+  0% {
+    transform: translateY(-100vh) translateX(0) rotate(-8deg) scaleY(0.6);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+    transform: translateY(-92vh) translateX(2px) rotate(-8deg) scaleY(1);
+  }
+  96% {
+    opacity: 1;
+    transform: translateY(92vh) translateX(var(--wind-offset, 35px)) rotate(-8deg) scaleY(1);
+  }
+  100% {
+    transform: translateY(100vh) translateX(var(--wind-offset, 40px)) rotate(-8deg) scaleY(0.7);
+    opacity: 0;
+  }
+}
+
+.rain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 5;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.rain-container.drizzle {
+  filter: brightness(1.05) contrast(0.95);
+}
+
+.rain-container.heavy-rain {
+  filter: brightness(0.95) contrast(1.15) saturate(1.1);
+}
+
+.rain-drop {
+  position: absolute;
+  width: 1.2px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.8) 30%, rgba(173, 216, 230, 0.5) 70%, rgba(255, 255, 255, 0.3) 100%);
+  animation: rain ease-in-out infinite;
+  border-radius: 0 0 50% 50%;
+  filter: blur(0.2px);
+  transform-origin: center;
+}
+
+.rain-drop.stormy {
+  width: 1.6px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 20%, rgba(173, 216, 230, 0.6) 50%, rgba(135, 206, 235, 0.4) 80%, rgba(255, 255, 255, 0.3) 100%);
+  animation: stormyRain ease-in-out infinite;
+  filter: blur(0.15px);
+}
+
+.rain-drop.heavy {
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 15%, rgba(173, 216, 230, 0.7) 40%, rgba(135, 206, 235, 0.5) 70%, rgba(255, 255, 255, 0.4) 100%);
+  animation: heavyRain ease-in-out infinite;
+  filter: blur(0.1px);
+}
+
+.rain-container.drizzle .rain-drop {
+  animation-name: drizzle;
+}
+
+.rain-container.heavy-rain .rain-drop {
+  animation-name: heavyRain;
+}
+
+.rain-container.storm-rain {
+  filter: brightness(0.92) contrast(1.1) saturate(1.05);
+}
+
+@keyframes gentleStormSway {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-3px);
+  }
+}
+
+.rain-container.storm-rain {
+  animation: gentleStormSway 6s ease-in-out infinite;
+}
+
+.rain-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: repeating-linear-gradient(90deg, transparent 0px, rgba(255, 255, 255, 0.2) 1px, transparent 3px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+
+
+.rain-container.storm-rain .rain-drop {
+  animation-duration: 1.2s; /* Konsisten untuk semua */
+  width: 1.6px; /* Ukuran konsisten */
+}
+
+.storm-rain {
+  filter: brightness(0.94) contrast(1.05);
+}
+
+.lightning-container:has(.lightning-flash[style*="opacity: 1"]) ~ .rain-container .rain-drop {
+  filter: brightness(1.2);
+  transition: filter 0.2s ease-out;
+}
+

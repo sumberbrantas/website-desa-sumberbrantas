@@ -1,0 +1,152 @@
+.structure-form-container {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.structure-image-preview {
+  transition: all 0.3s ease;
+}
+
+.structure-image-preview:hover {
+  transform: scale(1.02);
+}
+
+.structure-upload-area {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.structure-upload-area:hover {
+  border-color: #1B3A6D;
+  background: rgba(27, 58, 109, 0.02);
+}
+
+.structure-upload-area.drag-active {
+  border-color: #1B3A6D;
+  background: rgba(59, 130, 246, 0.05);
+  transform: scale(1.02);
+}
+
+.structure-tab-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.structure-tab-button:hover {
+  transform: translateY(-1px);
+}
+
+.structure-tab-button.active {
+  box-shadow: 0 4px 12px rgba(27, 58, 109, 0.15);
+}
+
+.structure-diagram-container {
+  transition: all 0.3s ease;
+}
+
+.structure-diagram-container img {
+  transition: all 0.3s ease;
+}
+
+.structure-diagram-container:hover img {
+  transform: scale(1.01);
+}
+
+.structure-table-row {
+  transition: all 0.2s ease;
+}
+
+.structure-table-row:hover {
+  background: rgba(27, 58, 109, 0.02);
+  transform: translateX(2px);
+}
+
+.structure-status-badge {
+  transition: all 0.2s ease;
+}
+
+.structure-status-badge:hover {
+  transform: scale(1.05);
+}
+
+.structure-form-field {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.structure-form-field:focus-within {
+  transform: translateY(-1px);
+}
+
+.structure-image-upload-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.structure-image-upload-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(27, 58, 109, 0.2);
+}
+
+.structure-image-upload-button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .structure-tab-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .structure-diagram-container {
+    padding: 1rem;
+  }
+  
+  .structure-form-container {
+    padding: 1rem;
+  }
+}
+
+.structure-loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: structure-loading 1.5s infinite;
+}
+
+@keyframes structure-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.structure-tab-button:focus {
+  outline: 2px solid rgba(27, 58, 109, 0.5);
+  outline-offset: 2px;
+}
+
+.structure-form-field:focus {
+  outline: 2px solid rgba(27, 58, 109, 0.3);
+  outline-offset: 2px;
+}
+
+.structure-error-state {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.structure-error-message {
+  color: #dc2626;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.structure-success-state {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.structure-success-message {
+  color: #059669;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+

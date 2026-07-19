@@ -1,0 +1,422 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* ============================================
+   Earth Tone Color Palette - Complete System
+   ============================================ */
+
+:root {
+  /* === CORE PALETTE === */
+  /* Background */
+  --color-old-lace: #f7f6e2;    /* Cream/Light - Main background */
+  --color-parchment: #efe9d5;    /* Darker cream - Card backgrounds */
+
+  /* Primary Text */
+  --color-cafe-noir: #4e361e;   /* Dark brown - Main text */
+  --color-dark-chocolate: #3a2a1a; /* Darker brown - Headings */
+
+  /* Accent/Primary */
+  --color-ebony: #556846;       /* Forest green - Primary buttons */
+  --color-olive: #6b7d5a;       /* Olive green - Secondary accents */
+
+  /* Secondary */
+  --color-coffee: #6c5134;      /* Coffee brown - Secondary buttons */
+  --color-walnut: #5a442c;       /* Darker brown - Hover states */
+
+  /* Borders & Accents */
+  --color-grullo: #aea387;       /* Grayish brown - Borders */
+  --color-sand: #c4b998;         /* Sand - Lighter borders */
+
+  /* Neutral/Browns */
+  --color-saddle-brown: #8b6914;  /* Saddle brown - Links/Accents */
+  --color-tan: #d2b48c;          /* Tan - Highlights */
+
+  /* Status Colors - Earth Tone Versions */
+  --color-success: #4a7c59;      /* Forest green - Success */
+  --color-warning: #b8860b;       /* Dark goldenrod - Warning */
+  --color-error: #a94442;        /* Earthy red - Error */
+  --color-info: #5a7d8a;         /* Teal brown - Info */
+
+  /* === SEMANTIC MAPPING === */
+  --background: var(--color-old-lace);
+  --background-alt: var(--color-parchment);
+  --foreground: var(--color-cafe-noir);
+  --foreground-dark: var(--color-dark-chocolate);
+
+  --primary: var(--color-ebony);
+  --primary-hover: #3d4f35;
+  --primary-light: var(--color-olive);
+
+  --secondary: var(--color-coffee);
+  --secondary-hover: var(--color-walnut);
+
+  --accent: var(--color-saddle-brown);
+  --border: var(--color-grullo);
+  --border-light: var(--color-sand);
+
+  --text-primary: var(--color-cafe-noir);
+  --text-secondary: #5a4535;
+  --text-muted: #7a6a5a;
+  --text-light: #ffffff;
+
+  --success: var(--color-success);
+  --warning: var(--color-warning);
+  --error: var(--color-error);
+  --info: var(--color-info);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Note: Dark mode disabled - using earth tone light theme consistently */
+
+html {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   TEXT UTILITIES
+   ============================================ */
+
+.text-earth-dark { color: var(--color-dark-chocolate); }
+.text-earth-primary { color: var(--color-cafe-noir); }
+.text-earth-secondary { color: var(--color-secondary); }
+.text-earth-muted { color: var(--text-muted); }
+.text-earth-accent { color: var(--color-saddle-brown); }
+.text-earth-success { color: var(--color-success); }
+.text-earth-warning { color: var(--color-warning); }
+.text-earth-error { color: var(--color-error); }
+
+/* ============================================
+   BACKGROUND UTILITIES
+   ============================================ */
+
+.bg-earth { background-color: var(--background); }
+.bg-earth-alt { background-color: var(--background-alt); }
+.bg-earth-primary { background-color: var(--color-cafe-noir); }
+.bg-earth-dark { background-color: var(--color-dark-chocolate); }
+.bg-earth-ebony { background-color: var(--color-ebony); }
+.bg-earth-olive { background-color: var(--color-olive); }
+.bg-earth-coffee { background-color: var(--color-coffee); }
+.bg-earth-grullo { background-color: var(--color-grullo); }
+.bg-earth-sand { background-color: var(--color-sand); }
+
+/* Card backgrounds - cream tinted white */
+.bg-earth-card { background-color: rgba(255, 255, 255, 0.85); }
+.bg-earth-card-solid { background-color: #fffdf8; }
+
+/* ============================================
+   BORDER UTILITIES
+   ============================================ */
+
+.border-earth { border-color: var(--border); }
+.border-earth-light { border-color: var(--border-light); }
+.border-earth-dark { border-color: var(--color-cafe-noir); }
+.border-earth-primary { border-color: var(--primary); }
+
+/* ============================================
+   BUTTON UTILITIES
+   ============================================ */
+
+.btn-earth-primary {
+  background-color: var(--primary);
+  color: var(--text-light);
+  transition: background-color 0.2s ease;
+}
+
+.btn-earth-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-earth-secondary {
+  background-color: var(--secondary);
+  color: var(--text-light);
+  transition: background-color 0.2s ease;
+}
+
+.btn-earth-secondary:hover {
+  background-color: var(--secondary-hover);
+}
+
+.btn-earth-outline {
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  transition: all 0.2s ease;
+}
+
+.btn-earth-outline:hover {
+  background-color: var(--primary);
+  color: var(--text-light);
+}
+
+/* ============================================
+   FOCUS STATES
+   ============================================ */
+
+.focus-ring-earth:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(85, 104, 70, 0.25);
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-parchment);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-grullo);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cafe-noir);
+}
+
+/* ============================================
+   LINE CLAMP
+   ============================================ */
+
+.line-clamp-1, .line-clamp-2, .line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.line-clamp-1 { -webkit-line-clamp: 1; line-clamp: 1; }
+.line-clamp-2 { -webkit-line-clamp: 2; line-clamp: 2; }
+.line-clamp-3 { -webkit-line-clamp: 3; line-clamp: 3; }
+
+/* ============================================
+   CARD COMPONENTS
+   ============================================ */
+
+.card-earth {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(78, 54, 30, 0.08);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s ease;
+}
+
+.card-earth:hover {
+  box-shadow: 0 8px 24px rgba(78, 54, 30, 0.12);
+  transform: translateY(-2px);
+}
+
+.card-earth-static {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(78, 54, 30, 0.08);
+  border: 1px solid var(--border-light);
+}
+
+/* ============================================
+   SECTION STYLES
+   ============================================ */
+
+.section-earth {
+  background-color: var(--background);
+  padding: 4rem 0;
+}
+
+.section-earth-alt {
+  background-color: var(--background-alt);
+  padding: 4rem 0;
+}
+
+/* ============================================
+   PROSE / CONTENT STYLES
+   ============================================ */
+
+.prose-earth {
+  color: var(--text-secondary);
+  max-width: none;
+  line-height: 1.8;
+}
+
+.prose-earth p { margin-bottom: 1.25em; }
+.prose-earth h1, .prose-earth h2, .prose-earth h3, .prose-earth h4 {
+  color: var(--foreground-dark);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.prose-earth h1 { font-size: 2.25rem; }
+.prose-earth h2 { font-size: 1.875rem; }
+.prose-earth h3 { font-size: 1.5rem; }
+.prose-earth h4 { font-size: 1.25rem; }
+
+.prose-earth strong { font-weight: 600; color: var(--foreground-dark); }
+.prose-earth a { color: var(--accent); text-decoration: underline; }
+.prose-earth a:hover { color: var(--primary); }
+
+.prose-earth blockquote {
+  border-left: 4px solid var(--border);
+  padding-left: 1.25em;
+  font-style: italic;
+  color: var(--text-muted);
+  background-color: var(--background-alt);
+  padding: 1em;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* ============================================
+   ARTICLE CONTENT
+   ============================================ */
+
+.article-content {
+  text-align: justify;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.article-content p {
+  margin-bottom: 1.5em;
+  text-align: justify;
+  hyphens: auto;
+  word-spacing: 0.05em;
+}
+
+.article-content br { margin-bottom: 0.5em; }
+
+/* ============================================
+   FORM INPUTS
+   ============================================ */
+
+.input-earth {
+  background-color: white;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  color: var(--foreground);
+  transition: all 0.2s ease;
+}
+
+.input-earth:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(85, 104, 70, 0.15);
+}
+
+.input-earth::placeholder {
+  color: var(--text-muted);
+}
+
+.label-earth {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  margin-bottom: 0.375rem;
+}
+
+/* ============================================
+   BADGE / TAG
+   ============================================ */
+
+.badge-earth {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background-color: var(--background-alt);
+  color: var(--foreground);
+  border: 1px solid var(--border-light);
+}
+
+.badge-earth-primary {
+  background-color: var(--primary);
+  color: var(--text-light);
+  border-color: var(--primary);
+}
+
+.badge-earth-success {
+  background-color: var(--success);
+  color: var(--text-light);
+}
+
+.badge-earth-warning {
+  background-color: var(--warning);
+  color: var(--text-light);
+}
+
+/* ============================================
+   WHATSAPP BUTTON
+   ============================================ */
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1da851;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+.smooth-transition {
+  transition: all 0.3s ease;
+}
+
+.animate-on-load {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.smooth-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Stagger animations */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }

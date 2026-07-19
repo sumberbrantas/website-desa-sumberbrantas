@@ -1,0 +1,221 @@
+@media (max-width: 767px) {
+  .app-header {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 0.75rem 1rem; /* Reduce padding on mobile */
+  }
+
+  .app-card {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    min-height: auto;
+    padding: 1rem; /* Consistent padding */
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px 0 rgb(0 0 0 / 0.06);
+  }
+
+  .app-content {
+    padding: 0.75rem; /* Reduce content padding on mobile */
+  }
+
+  .truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .grid {
+    gap: 1rem; /* Better gap spacing on mobile */
+  }
+
+  .app-text-2xl {
+    font-size: 1.125rem; /* Smaller on mobile */
+    line-height: 1.5rem;
+  }
+
+  .app-text-xl {
+    font-size: 1rem; /* Smaller on mobile */
+    line-height: 1.25rem;
+    font-weight: 700; /* Ensure bold text */
+  }
+
+  .break-words {
+    word-break: break-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+
+  .app-card .flex-grow {
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .app-button {
+    padding: 0.5rem 0.75rem; /* Smaller padding on mobile */
+    font-size: 0.75rem; /* Smaller text on mobile */
+  }
+
+  .app-header h1 {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+  }
+
+  .space-y-0 > * + * {
+    margin-top: 0;
+  }
+
+  .flex-1 {
+    min-width: 0;
+  }
+
+  .flex-shrink-0 {
+    flex-shrink: 0;
+  }
+
+  .min-h-\[100px\] {
+    min-height: 110px; /* Slightly taller on mobile for better spacing */
+  }
+
+  .app-card > div {
+    height: 100%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .dashboard-sidebar {
+    height: 100vh;
+    position: fixed;
+    z-index: 50;
+  }
+}
+
+@media (max-width: 768px) {
+  .rain-drop {
+    width: 1px;
+  }
+
+  .rain-drop.stormy {
+    width: 1.3px;
+  }
+
+  .rain-drop.heavy {
+    width: 1.5px;
+  }
+
+  .lightning-bolt {
+    width: 60px;
+    height: 90px;
+    top: 10%;
+    right: 8%;
+  }
+
+  .lightning-streak-1 {
+    height: 30px;
+  }
+
+  .lightning-streak-2 {
+    height: 45px;
+  }
+
+  .lightning-streak-3 {
+    height: 25px;
+  }
+
+  .rain-container::after,
+  .snow-container::after,
+  .lightning-container::before,
+  .lightning-container::after {
+    display: none;
+  }
+
+  .sun-rays::before {
+    display: none;
+  }
+
+  .cloud::after {
+    filter: blur(1px);
+  }
+}
+
+@media (max-width: 480px) {
+  .rain-drop {
+    width: 0.8px;
+  }
+
+  .rain-drop.stormy {
+    width: 1.1px;
+  }
+
+  .rain-drop.heavy {
+    width: 1.3px;
+  }
+
+  .lightning-bolt {
+    width: 40px;
+    height: 60px;
+    top: 12%;
+    right: 5%;
+  }
+
+  .lightning-streak {
+    display: none; /* Hide streaks on very small screens for performance */
+  }
+
+  .rain-drop,
+  .snow-flake,
+  .cloud {
+    animation-duration: 2s !important;
+  }
+
+  .lightning-bolt,
+  .lightning-flash {
+    animation-duration: 1s !important;
+  }
+
+  .fog-layer {
+    display: none;
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .rain-drop {
+    filter: blur(0.2px);
+  }
+
+  .lightning-bolt {
+    filter: blur(0.3px) brightness(1.3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rain-drop,
+  .rain-drop.stormy,
+  .rain-drop.heavy {
+    animation-duration: 4s !important;
+    opacity: 0.5 !important;
+  }
+
+  .lightning-bolt,
+  .lightning-flash,
+  .lightning-streak {
+    animation: none !important;
+    opacity: 0.2 !important;
+  }
+
+  .rain-container.storm-rain {
+    animation: none !important;
+  }
+}
+
+.rain-container *,
+.snow-container *,
+.clouds-container *,
+.fog-container *,
+.lightning-container *,
+.sun-rays-container * {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+

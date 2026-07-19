@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@import "./base.css";
+
+@import "./components/layout.css";
+@import "./components/forms.css";
+@import "./components/navigation.css";
+@import "./components/structure.css";
+
+@import "./animations/keyframes.css";
+
+@import "./weather/rain.css";
+@import "./weather/sun-effects.css";
+@import "./weather/lightning.css";
+@import "./weather/snow-clouds.css";
+@import "./weather/overlays.css";
+
+@import "./responsive.css";
