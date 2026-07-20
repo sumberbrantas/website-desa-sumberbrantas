@@ -20,8 +20,8 @@ const geistMono = Geist_Mono({
 // Metadata default tanpa favicon (akan di-set oleh DynamicMetadata)
 export const metadata: Metadata = {
   title: {
-    default: "Desa Template",
-    template: "%s | Desa Template",
+    default: "Desa Sumberbrantas",
+    template: "%s | Desa Sumberbrantas",
   },
   description: "Website resmi desa modern dengan fitur lengkap.",
 };
