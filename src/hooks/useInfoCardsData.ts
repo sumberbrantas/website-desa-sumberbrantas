@@ -18,13 +18,13 @@ export const useInfoCardsData = () => {
     {
       icon: FiUsers,
       title: "Jumlah Penduduk",
-      value: "7.847",
+      value: "4.979",
       subtitle: "Jiwa",
     },
     {
       icon: FiHome,
       title: "Jumlah RT",
-      value: "39",
+      value: "34",
       subtitle: "Rukun Tetangga",
     },
   ];

@@ -58,7 +58,7 @@ export const useWeather = () => {
               windSpeed: Math.round(current.windspeed),
               icon: weatherInfo.icon,
               feelsLike: Math.round(current.temperature + (current.windspeed > 10 ? -2 : 0)),
-              source: "Open-Meteo"
+              source: "Open-Meteo",
             };
           }
         } catch (error) {
@@ -67,7 +67,7 @@ export const useWeather = () => {
 
         if (!weatherData) {
           try {
-            const wttrResponse = await fetch(`https://wttr.in/Malang,Indonesia?format=j1`);
+            const wttrResponse = await fetch(`https://wttr.in/Sumberbrantas,Bumiaji?format=j1`);
             if (wttrResponse.ok) {
               const wttrData = await wttrResponse.json();
               const current = wttrData.current_condition[0];
@@ -78,7 +78,7 @@ export const useWeather = () => {
                 windSpeed: parseInt(current.windspeedKmph),
                 icon: current.weatherCode,
                 feelsLike: parseInt(current.FeelsLikeC),
-                source: "wttr.in"
+                source: "wttr.in",
               };
             }
           } catch (error) {
@@ -90,7 +90,7 @@ export const useWeather = () => {
           console.log("✅ Weather data received from", weatherData.source, ":", {
             description: weatherData.description,
             icon: weatherData.icon,
-            temperature: weatherData.temperature + "°C"
+            temperature: weatherData.temperature + "°C",
           });
           setWeather(weatherData);
         } else {
@@ -113,4 +113,3 @@ export const useWeather = () => {
 
   return { weather, loading, error };
 };
-

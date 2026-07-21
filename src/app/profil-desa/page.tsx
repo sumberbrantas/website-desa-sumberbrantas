@@ -27,11 +27,11 @@ const ProfilDesaPage = () => {
     <div className={`min-h-screen flex flex-col smooth-transition ${mounted ? "smooth-reveal" : "animate-on-load"}`}>
       <Header />
 
-      <section className="bg-[#1B3A6D] text-white py-12">
+      <section className="py-16" style={{ backgroundColor: "var(--background-alt)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-2xl md:text-3xl font-bold mb-3">{judul}</h1>
-            {subJudul && <p className="text-base text-white/90 max-w-2xl mx-auto">{subJudul}</p>}
+            {subJudul && <p className="text-lg max-w-2xl mx-auto text-earth-muted">{subJudul}</p>}
           </div>
         </div>
       </section>
