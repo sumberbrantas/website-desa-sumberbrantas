@@ -24,7 +24,7 @@ const PanduanPage = () => {
     <div className="flex flex-col min-h-full">
       <PageHeader
         title="Panduan Penggunaan"
-        subtitle="Panduan lengkap penggunaan dan manajemen website Desa Ngebruk"
+        subtitle="Panduan lengkap penggunaan dan manajemen website Desa Sumberbrantas"
         mounted={mounted}
         actions={
           <button onClick={toggleFullscreen} className="inline-flex items-center px-3 py-1.5 bg-[#1B3A6D] text-white text-xs font-medium rounded-lg hover:bg-[#1B3A6D]/90 smooth-transition hover:scale-105 active:scale-95">
@@ -49,14 +49,7 @@ const PanduanPage = () => {
           )}
 
           <div className={`${isFullscreen ? "h-[calc(100vh-120px)]" : "w-full aspect-video"}`}>
-            <iframe
-              src="https://www.canva.com/design/DAGtxAYVlyw/06zU4PFWRGKyPSF3E37lpg/view?embed"
-              title="Panduan Penggunaan Dashboard Desa Ngebruk"
-              className="w-full h-full border-0"
-              allowFullScreen
-              allow="camera; microphone; geolocation"
-              loading="lazy"
-            />
+            <iframe src="https://www.canva.com/" title="Panduan Penggunaan Dashboard Desa Sumberbrantas" className="w-full h-full border-0" allowFullScreen allow="camera; microphone; geolocation" loading="lazy" />
           </div>
         </div>
 

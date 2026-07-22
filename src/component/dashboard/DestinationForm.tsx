@@ -16,15 +16,7 @@ interface DestinationFormProps {
     isActive?: boolean;
     order?: number;
   };
-  onSave: (data: {
-    name: string;
-    description: string;
-    image?: File;
-    location: string;
-    category: string;
-    isActive: boolean;
-    order: number;
-  }) => Promise<void>;
+  onSave: (data: { name: string; description: string; image?: File; location: string; category: string; isActive: boolean; order: number }) => Promise<void>;
   onCancel: () => void;
   loading?: boolean;
 }
@@ -128,9 +120,7 @@ const DestinationForm = ({ destination, onSave, onCancel, loading }: Destination
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left Column - Image */}
         <div className="space-y-4">
-          <label className="block text-xs font-medium text-black">
-            Gambar Destinasi {!destination && <span className="text-red-500">*</span>}
-          </label>
+          <label className="block text-xs font-medium text-black">Gambar Destinasi {!destination && <span className="text-red-500">*</span>}</label>
 
           {storageError && (
             <div className="p-3 bg-red-50 border border-red-200 rounded-md flex items-start gap-2">
@@ -206,37 +196,14 @@ const DestinationForm = ({ destination, onSave, onCancel, loading }: Destination
 
         {/* Right Column - Form Fields */}
         <div className="space-y-4">
-          <FormInput
-            label="Nama Destinasi"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Contoh: Air Terjun Widara"
-            required
-          />
+          <FormInput label="Nama Destinasi" name="name" value={formData.name} onChange={handleChange} placeholder="Contoh: Air Terjun Widara" required />
 
-          <FormTextarea
-            label="Deskripsi"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            placeholder="Deskripsi destinasi wisata..."
-            rows={3}
-          />
+          <FormTextarea label="Deskripsi" name="description" value={formData.description} onChange={handleChange} placeholder="Deskripsi destinasi wisata..." rows={3} />
 
-          <FormInput
-            label="Lokasi"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            placeholder="Contoh: Desa Ngebruk, Kecamatan Sumberpucung"
-            required
-          />
+          <FormInput label="Lokasi" name="location" value={formData.location} onChange={handleChange} placeholder="Contoh: Desa Sumberbrantas, Kecamatan Sumberpucung" required />
 
           <div>
-            <label className="block text-xs font-medium text-black mb-2">
-              Kategori
-            </label>
+            <label className="block text-xs font-medium text-black mb-2">Kategori</label>
             <select
               name="category"
               value={formData.category}
@@ -251,26 +218,11 @@ const DestinationForm = ({ destination, onSave, onCancel, loading }: Destination
             </select>
           </div>
 
-          <FormInput
-            label="Urutan Tampil"
-            name="order"
-            type="number"
-            value={String(formData.order)}
-            onChange={handleChange}
-            placeholder="1"
-            min={1}
-            required
-          />
+          <FormInput label="Urutan Tampil" name="order" type="number" value={String(formData.order)} onChange={handleChange} placeholder="1" min={1} required />
 
           <div>
             <label className="flex items-center gap-2 cursor-pointer">
-              <input
-                type="checkbox"
-                name="isActive"
-                checked={formData.isActive}
-                onChange={handleChange}
-                className="w-4 h-4 rounded border-gray-300 text-[var(--primary)] focus:ring-[var(--primary)]"
-              />
+              <input type="checkbox" name="isActive" checked={formData.isActive} onChange={handleChange} className="w-4 h-4 rounded border-gray-300 text-[var(--primary)] focus:ring-[var(--primary)]" />
               <span className="text-sm text-gray-700">Destinasi Aktif</span>
             </label>
           </div>
@@ -278,20 +230,10 @@ const DestinationForm = ({ destination, onSave, onCancel, loading }: Destination
       </div>
 
       <div className="flex justify-end gap-3 pt-4 border-t">
-        <button
-          type="button"
-          onClick={onCancel}
-          className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors"
-          disabled={loading}
-        >
+        <button type="button" onClick={onCancel} className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors" disabled={loading}>
           Batal
         </button>
-        <button
-          type="submit"
-          className="px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors disabled:opacity-50"
-          style={{ backgroundColor: "var(--primary)" }}
-          disabled={loading}
-        >
+        <button type="submit" className="px-4 py-2 text-sm font-medium text-white rounded-lg transition-colors disabled:opacity-50" style={{ backgroundColor: "var(--primary)" }} disabled={loading}>
           {loading ? "Menyimpan..." : "Simpan"}
         </button>
       </div>

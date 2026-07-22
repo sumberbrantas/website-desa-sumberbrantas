@@ -189,12 +189,12 @@ const PelayananPage = () => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-3">
-            <h1 className="text-3xl font-bold text-gray-900 mb-6">Layanan Desa Ngebruk</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-6">Layanan Desa Sumberbrantas</h1>
 
             <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
               <p className="text-gray-700 leading-relaxed text-justify text-sm">
-                Selamat datang di bagian Layanan website Desa Ngebruk! Kami hadir untuk memudahkan Anda dalam setiap langkah pembuatan surat yang Anda butuhkan. Di sini, kami menyediakan berbagai layanan pembuatan surat yang dirancang untuk
-                memenuhi kebutuhan administrasi warga desa.
+                Selamat datang di bagian Layanan website Desa Sumberbrantas! Kami hadir untuk memudahkan Anda dalam setiap langkah pembuatan surat yang Anda butuhkan. Di sini, kami menyediakan berbagai layanan pembuatan surat yang dirancang
+                untuk memenuhi kebutuhan administrasi warga desa.
               </p>
             </div>
 

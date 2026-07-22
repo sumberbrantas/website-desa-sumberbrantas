@@ -121,9 +121,7 @@ const PengumumanDetailPage = () => {
                 <div className="space-y-6">
                   <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 leading-tight">Pengumuman Tidak Ditemukan</h1>
 
-                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">
-                    {error || "Pengumuman yang Anda cari tidak ditemukan atau mungkin telah dipindahkan."}
-                  </p>
+                  <p className="text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed">{error || "Pengumuman yang Anda cari tidak ditemukan atau mungkin telah dipindahkan."}</p>
 
                   <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                     <Link
@@ -250,7 +248,7 @@ const PengumumanDetailPage = () => {
               <div>
                 <h4 className="font-semibold text-[#1B3A6D] mb-2">Informasi Penting</h4>
                 <p className="text-gray-700 text-sm leading-relaxed">
-                  Pengumuman ini berlaku dari tanggal {formatDateRange(announcement.startDate, announcement.endDate)}. Untuk informasi lebih lanjut, silakan hubungi kantor desa atau kunjungi langsung Balai Desa Ngebruk.
+                  Pengumuman ini berlaku dari tanggal {formatDateRange(announcement.startDate, announcement.endDate)}. Untuk informasi lebih lanjut, silakan hubungi kantor desa atau kunjungi langsung Balai Desa Sumberbrantas.
                 </p>
               </div>
             </div>
