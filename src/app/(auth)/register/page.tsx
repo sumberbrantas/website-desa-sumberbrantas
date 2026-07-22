@@ -13,7 +13,7 @@ const RegisterPage = () => {
 
   return (
     <ProtectedRoute requireAuth={false}>
-      <AuthLayout imageSrc="/stasiun_ngebruk.JPG" title="Mulai kelola dan kembangkan website Desa Ngebruk dengan mudah melalui panel admin" subtitle="Panel Admin" mounted={mounted}>
+      <AuthLayout imageSrc="/sumberbrantas.jpg" title="Mulai kelola dan kembangkan website Desa Sumberbrantas dengan mudah melalui panel admin" subtitle="Panel Admin" mounted={mounted}>
         <RegisterHeader mounted={mounted} />
 
         {error && <ErrorMessage error={error} />}

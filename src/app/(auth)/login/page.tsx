@@ -9,38 +9,16 @@ import LoginFooter from "@/component/auth/LoginFooter";
 import { useLogin } from "@/hooks/useLogin";
 
 const LoginPage = () => {
-  const {
-    mounted,
-    formData,
-    showPassword,
-    loading,
-    error,
-    handleInputChange,
-    handleTogglePassword,
-    handleSubmit,
-  } = useLogin();
+  const { mounted, formData, showPassword, loading, error, handleInputChange, handleTogglePassword, handleSubmit } = useLogin();
 
   return (
     <ProtectedRoute requireAuth={false}>
-      <AuthLayout
-        imageSrc="/kantor_desa.jpg"
-        title="Mulai kelola dan kembangkan website Desa Ngebruk dengan mudah melalui panel admin"
-        subtitle="Panel Admin"
-        mounted={mounted}
-      >
+      <AuthLayout imageSrc="/sumberbrantas.jpg" title="Mulai kelola dan kembangkan website Desa Sumberbrantas dengan mudah melalui panel admin" subtitle="Panel Admin" mounted={mounted}>
         <LoginHeader mounted={mounted} />
 
         {error && <ErrorMessage error={error} />}
 
-        <LoginForm
-          mounted={mounted}
-          formData={formData}
-          showPassword={showPassword}
-          loading={loading}
-          onInputChange={handleInputChange}
-          onTogglePassword={handleTogglePassword}
-          onSubmit={handleSubmit}
-        />
+        <LoginForm mounted={mounted} formData={formData} showPassword={showPassword} loading={loading} onInputChange={handleInputChange} onTogglePassword={handleTogglePassword} onSubmit={handleSubmit} />
 
         <LoginFooter mounted={mounted} />
       </AuthLayout>
@@ -49,4 +27,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
