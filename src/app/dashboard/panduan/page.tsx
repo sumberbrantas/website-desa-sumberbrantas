@@ -62,7 +62,7 @@ const PanduanPage = () => {
 
         <div className={`mt-6 smooth-transition ${mounted ? "smooth-reveal stagger-1" : "animate-on-load"}`}>
           <h2 className="text-lg font-semibold text-gray-900 mb-1">Panduan Dashboard Eksternal</h2>
-          <p className="text-xs text-gray-700 mb-4">Pastikan anda login menggunakan Akun Google it.mmd.filkom49@gmail.com saat mengakses dashboard eksternal tersebut. Baca panduan di atas untuk informasi lebih lanjut.</p>
+          <p className="text-xs text-gray-700 mb-4">Pastikan anda login menggunakan Akun Google desasumberbrantasbatu@gmail.com saat mengakses dashboard eksternal tersebut. Baca panduan di atas untuk informasi lebih lanjut.</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md smooth-transition hover-lift cursor-pointer group">
               <div className="flex items-center justify-between mb-3">
@@ -74,7 +74,7 @@ const PanduanPage = () => {
               <h3 className="font-semibold text-gray-900 mb-1">Firebase Console</h3>
               <p className="text-sm text-gray-600 mb-3">Kelola database dan sistem autentikasi website ini.</p>
               <button
-                onClick={() => window.open("https://console.firebase.google.com/project/website-desa-ngebruk/overview", "_blank")}
+                onClick={() => window.open("https://console.firebase.google.com/u/1/project/sumberbrantas/overview", "_blank")}
                 className="w-full bg-[#1B3A6D] text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-[#152f5a] smooth-transition"
               >
                 Buka Firebase
@@ -90,10 +90,7 @@ const PanduanPage = () => {
               </div>
               <h3 className="font-semibold text-gray-900 mb-1">Vercel Dashboard</h3>
               <p className="text-sm text-gray-600 mb-3">Monitor deployment dan performance dari website ini.</p>
-              <button
-                onClick={() => window.open("https://vercel.com/it-mmd-filkom-49s-projects/website-desa-ngebruk", "_blank")}
-                className="w-full bg-[#1B3A6D] text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-[#152f5a] smooth-transition"
-              >
+              <button onClick={() => window.open("https://vercel.com/sumberbrantasbatu/desasumberbrantas", "_blank")} className="w-full bg-[#1B3A6D] text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-[#152f5a] smooth-transition">
                 Buka Vercel
               </button>
             </div>
@@ -122,7 +119,7 @@ const PanduanPage = () => {
               <h3 className="font-semibold text-gray-900 mb-1">GitHub Repository</h3>
               <p className="text-sm text-gray-600 mb-3">Akses dan modifikasi source code dari website ini.</p>
               <button
-                onClick={() => window.open("https://github.com/it-mmd-filkom-49/website-desa-ngebruk", "_blank")}
+                onClick={() => window.open("https://github.com/sumberbrantas/website-desa-sumberbrantas", "_blank")}
                 className="w-full bg-[#1B3A6D] text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-[#152f5a] smooth-transition"
               >
                 Buka GitHub

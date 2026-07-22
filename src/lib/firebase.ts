@@ -6,7 +6,7 @@ import { getFirestore, Firestore } from "firebase/firestore";
 import { getStorage, FirebaseStorage } from "firebase/storage";
 
 // Cek apakah menggunakan mock data
-const useMockData = process.env.NEXT_PUBLIC_USE_MOCK_DATA === "true";
+const useMockData = false;
 
 let app: FirebaseApp | null = null;
 let auth: Auth | null = null;
