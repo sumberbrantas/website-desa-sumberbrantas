@@ -48,60 +48,19 @@ const PanduanPage = () => {
             </div>
           )}
 
+          {/* Bagian iframe Canva yang sebelumnya terhapus */}
           <div className={`${isFullscreen ? "h-[calc(100vh-120px)]" : "w-full aspect-video"}`}>
             <iframe src="https://www.canva.com/" title="Panduan Penggunaan Dashboard Desa Sumberbrantas" className="w-full h-full border-0" allowFullScreen allow="camera; microphone; geolocation" loading="lazy" />
           </div>
-        </div>
-
+        </div>{" "}
+        {/* Ini tag penutup div yang sebelumnya hilang */}
         <div className={`mt-6 smooth-transition ${mounted ? "smooth-reveal stagger-1" : "animate-on-load"}`}>
           <h2 className="text-lg font-semibold text-gray-900 mb-1">Panduan Dashboard Eksternal</h2>
           <p className="text-xs text-gray-700 mb-4">Pastikan anda login menggunakan Akun Google desasumberbrantasbatu@gmail.com saat mengakses dashboard eksternal tersebut. Baca panduan di atas untuk informasi lebih lanjut.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md smooth-transition hover-lift cursor-pointer group">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center group-hover:scale-110 smooth-transition">
-                  <FiDatabase className="text-[#556846]" size={20} />
-                </div>
-                <FiExternalLink className="text-gray-400 group-hover:text-[#556846] smooth-transition" size={16} />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1">Firebase Console</h3>
-              <p className="text-sm text-gray-600 mb-3">Kelola database dan sistem autentikasi website ini.</p>
-              <button
-                onClick={() => window.open("https://console.firebase.google.com/u/1/project/sumberbrantas/overview", "_blank")}
-                className="w-full bg-[#556846] text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-[#3d4f35] smooth-transition"
-              >
-                Buka Firebase
-              </button>
-            </div>
 
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md smooth-transition hover-lift cursor-pointer group">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center group-hover:scale-110 smooth-transition">
-                  <FiServer className="text-[#556846]" size={20} />
-                </div>
-                <FiExternalLink className="text-gray-400 group-hover:text-[#556846] smooth-transition" size={16} />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1">Vercel Dashboard</h3>
-              <p className="text-sm text-gray-600 mb-3">Monitor deployment dan performance dari website ini.</p>
-              <button onClick={() => window.open("https://vercel.com/sumberbrantasbatu/desasumberbrantas", "_blank")} className="w-full bg-[#556846] text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-[#3d4f35] smooth-transition">
-                Buka Vercel
-              </button>
-            </div>
-
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md smooth-transition hover-lift cursor-pointer group">
-              <div className="flex items-center justify-between mb-3">
-                <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center group-hover:scale-110 smooth-transition">
-                  <FiGlobe className="text-[#556846]" size={20} />
-                </div>
-                <FiExternalLink className="text-gray-400 group-hover:text-[#556846] smooth-transition" size={16} />
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-1">IDCloudHost</h3>
-              <p className="text-sm text-gray-600 mb-3">Kelola domain desangebruk.web.id yang digunakan oleh web ini.</p>
-              <button onClick={() => window.open("https://my.idcloudhost.com/clientarea.php", "_blank")} className="w-full bg-[#556846] text-white py-2 px-3 rounded-lg text-sm font-medium hover:bg-[#3d4f35] smooth-transition">
-                Buka IDCloudHouse
-              </button>
-            </div>
-
+          {/* Kontainer Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {/* Kartu GitHub Repository */}
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 hover:shadow-md smooth-transition hover-lift cursor-pointer group">
               <div className="flex items-center justify-between mb-3">
                 <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center group-hover:scale-110 smooth-transition">
@@ -122,6 +81,7 @@ const PanduanPage = () => {
         </div>
       </div>
 
+      {/* Bagian Footer */}
       <div className={`w-full bg-gray-100 py-4 md:py-4 smooth-transition ${mounted ? "smooth-reveal stagger-4" : "animate-on-load"}`}>
         <CreditsFooter variant="light" />
       </div>
