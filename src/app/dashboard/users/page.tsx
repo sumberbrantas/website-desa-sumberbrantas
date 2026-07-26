@@ -165,7 +165,7 @@ const UsersPage = () => {
         return (
           <div className="flex items-center">
             <div className="flex-shrink-0 w-10 h-10">
-              <div className="w-10 h-10 bg-[#1B3A6D] rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-[#556846] rounded-full flex items-center justify-center">
                 <FiUsers className="w-5 h-5 text-white" />
               </div>
             </div>
@@ -218,7 +218,7 @@ const UsersPage = () => {
             value={user?.role || "pending"}
             onChange={(e) => handleUpdateRole(userId, e.target.value as "admin" | "pending")}
             disabled={actionLoading}
-            className="text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent disabled:opacity-50"
+            className="text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#556846] focus:border-transparent disabled:opacity-50"
           >
             <option value="pending">Menunggu Persetujuan</option>
             <option value="admin">Administrator</option>
@@ -293,8 +293,8 @@ const UsersPage = () => {
               users.length > 0 && filteredUsers.length === 0
                 ? `Data pengguna ditemukan (${users.length}) tetapi tidak dapat ditampilkan. Periksa format data.`
                 : searchTerm
-                ? "Tidak ada pengguna yang ditemukan dengan kata kunci tersebut."
-                : "Belum ada pengguna yang terdaftar."
+                  ? "Tidak ada pengguna yang ditemukan dengan kata kunci tersebut."
+                  : "Belum ada pengguna yang terdaftar."
             }
           />
 
@@ -319,4 +319,3 @@ const UsersPage = () => {
 };
 
 export default UsersPage;
-

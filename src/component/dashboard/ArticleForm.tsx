@@ -180,7 +180,7 @@ const ArticleForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
                       }
                     }}
                     disabled={loading}
-                    className="flex-1 bg-[#1B3A6D] text-white px-4 py-2 rounded-lg hover:bg-[#152f5a] transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
+                    className="flex-1 bg-[#556846] text-white px-4 py-2 rounded-lg hover:bg-[#152f5a] transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
                   >
                     <FiImage size={16} />
                     Preview
@@ -189,7 +189,7 @@ const ArticleForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
                     disabled={loading}
-                    className="flex-1 border border-[#1B3A6D] text-[#1B3A6D] px-4 py-2 rounded-lg hover:bg-[#1B3A6D] hover:text-white transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
+                    className="flex-1 border border-[#556846] text-[#556846] px-4 py-2 rounded-lg hover:bg-[#556846] hover:text-white transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
                   >
                     <FiUpload size={16} />
                     Ganti Gambar
@@ -199,7 +199,7 @@ const ArticleForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
             ) : (
               <div
                 className={`border-2 border-dashed rounded-lg p-6 lg:p-8 text-center transition-colors cursor-pointer h-64 lg:h-80 flex flex-col justify-center ${
-                  dragActive ? "border-[#1B3A6D] bg-[#1B3A6D]/5" : "border-gray-300 hover:border-[#1B3A6D] hover:bg-gray-50"
+                  dragActive ? "border-[#556846] bg-[#556846]/5" : "border-gray-300 hover:border-[#556846] hover:bg-gray-50"
                 } ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
                 onDragEnter={handleDrag}
                 onDragLeave={handleDrag}

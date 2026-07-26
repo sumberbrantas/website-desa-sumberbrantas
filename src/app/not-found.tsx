@@ -67,7 +67,7 @@ const NotFoundPage = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Link
                     href="/"
-                    className="bg-[#1B3A6D] text-white px-8 py-2 rounded-lg font-medium border-2 border-[#1B3A6D] hover:bg-[#1B3A6D] hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="bg-[#556846] text-white px-8 py-2 rounded-lg font-medium border-2 border-[#556846] hover:bg-[#556846] hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                   >
                     Kembali
                   </Link>
@@ -85,4 +85,3 @@ const NotFoundPage = () => {
 };
 
 export default NotFoundPage;
-

@@ -204,7 +204,7 @@ const PelayananPage = () => {
                   <button
                     key={category.id}
                     onClick={() => setActiveCategory(category.id)}
-                    className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === category.id ? "bg-[#1B3A6D] text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
+                    className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeCategory === category.id ? "bg-[#556846] text-white" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                   >
                     {category.name}
                   </button>
@@ -217,7 +217,7 @@ const PelayananPage = () => {
                 <div key={layanan.id} className={`bg-white rounded-lg overflow-hidden smooth-transition ${mounted ? "smooth-reveal" : "animate-on-load"}`} style={{ animationDelay: `${index * 0.05}s` }}>
                   <button
                     onClick={() => toggleExpanded(layanan.id)}
-                    className="w-full px-6 py-4 flex items-center justify-between text-left bg-white rounded-lg text-gray-700 border-gray-100 border-2 hover:border-[#1B3A6D] transition-colors text-sm font-medium"
+                    className="w-full px-6 py-4 flex items-center justify-between text-left bg-white rounded-lg text-gray-700 border-gray-100 border-2 hover:border-[#556846] transition-colors text-sm font-medium"
                   >
                     <span>{layanan.title}</span>
                     {expandedItems[layanan.id] ? <FiChevronUp size={18} /> : <FiChevronDown size={18} />}
@@ -230,7 +230,7 @@ const PelayananPage = () => {
                         <ul className="space-y-2">
                           {layanan.persyaratan.map((item, itemIndex) => (
                             <li key={itemIndex} className="text-gray-700 text-sm flex items-start">
-                              <span className="w-2 h-2 bg-[#1B3A6D] rounded-full mr-2 mt-1.5 flex-shrink-0"></span>
+                              <span className="w-2 h-2 bg-[#556846] rounded-full mr-2 mt-1.5 flex-shrink-0"></span>
                               <span className="flex-1">{item}</span>
                             </li>
                           ))}
@@ -250,33 +250,33 @@ const PelayananPage = () => {
             <AnnouncementsContent activeAnnouncements={activeAnnouncements} announcementsLoading={announcementsLoading} announcementsError={announcementsError} refetchAnnouncements={refetchAnnouncements} mounted={mounted} />
 
             <div className="bg-white rounded-lg shadow-sm p-4 mt-6">
-              <h4 className="text-lg font-bold text-[#1B3A6D] mb-3">Layanan Online SIPEDULI</h4>
+              <h4 className="text-lg font-bold text-[#556846] mb-3">Layanan Online SIPEDULI</h4>
               <div className="text-center mb-4">
-                <div className="bg-gray-50 bg-opacity-5 border border-[#1B3A6D] border-opacity-20 rounded-lg p-3">
-                  <p className="text-sm font-medium text-[#1B3A6D]">sipeduli.malangkab.go.id</p>
+                <div className="bg-gray-50 bg-opacity-5 border border-[#556846] border-opacity-20 rounded-lg p-3">
+                  <p className="text-sm font-medium text-[#556846]">sipeduli.malangkab.go.id</p>
                 </div>
               </div>
 
               <div className="space-y-2 mb-4">
                 <p className="text-xs text-gray-600">Layanan administrasi kependudukan online:</p>
                 <div className="grid grid-cols-2 gap-2 text-xs">
-                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#1B3A6D] border-opacity-20">
-                    <span className="font-semibold text-[#1B3A6D]">1.</span> <span className="text-gray-700">Registrasi</span>
+                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#556846] border-opacity-20">
+                    <span className="font-semibold text-[#556846]">1.</span> <span className="text-gray-700">Registrasi</span>
                   </div>
-                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#1B3A6D] border-opacity-20">
-                    <span className="font-semibold text-[#1B3A6D]">2.</span> <span className="text-gray-700">Aktivasi Email</span>
+                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#556846] border-opacity-20">
+                    <span className="font-semibold text-[#556846]">2.</span> <span className="text-gray-700">Aktivasi Email</span>
                   </div>
-                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#1B3A6D] border-opacity-20">
-                    <span className="font-semibold text-[#1B3A6D]">3.</span> <span className="text-gray-700">Upload KTP</span>
+                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#556846] border-opacity-20">
+                    <span className="font-semibold text-[#556846]">3.</span> <span className="text-gray-700">Upload KTP</span>
                   </div>
-                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#1B3A6D] border-opacity-20">
-                    <span className="font-semibold text-[#1B3A6D]">4.</span> <span className="text-gray-700">Verifikasi</span>
+                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#556846] border-opacity-20">
+                    <span className="font-semibold text-[#556846]">4.</span> <span className="text-gray-700">Verifikasi</span>
                   </div>
-                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#1B3A6D] border-opacity-20">
-                    <span className="font-semibold text-[#1B3A6D]">5.</span> <span className="text-gray-700">Pengajuan</span>
+                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#556846] border-opacity-20">
+                    <span className="font-semibold text-[#556846]">5.</span> <span className="text-gray-700">Pengajuan</span>
                   </div>
-                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#1B3A6D] border-opacity-20">
-                    <span className="font-semibold text-[#1B3A6D]">6.</span> <span className="text-gray-700">Ambil Berkas</span>
+                  <div className="bg-gray-50 bg-opacity-5 p-2 rounded border border-[#556846] border-opacity-20">
+                    <span className="font-semibold text-[#556846]">6.</span> <span className="text-gray-700">Ambil Berkas</span>
                   </div>
                 </div>
               </div>
@@ -284,13 +284,13 @@ const PelayananPage = () => {
               <div className="border-t border-gray-200 pt-3">
                 <p className="text-xs text-gray-600 mb-2">Informasi lebih lanjut:</p>
                 <div className="space-y-1">
-                  <p className="text-xs font-medium text-[#1B3A6D]">📞 0858-9545-3152</p>
-                  <p className="text-xs font-medium text-[#1B3A6D]">📞 0858-9545-3153</p>
+                  <p className="text-xs font-medium text-[#556846]">📞 0858-9545-3152</p>
+                  <p className="text-xs font-medium text-[#556846]">📞 0858-9545-3153</p>
                 </div>
                 <p className="text-xs text-gray-600 mt-2">
-                  <span className="text-[#1B3A6D] font-medium">✅ Proses dari rumah</span>
+                  <span className="text-[#556846] font-medium">✅ Proses dari rumah</span>
                   <br />
-                  <span className="text-[#1B3A6D] font-medium">📋 Ambil di kantor kecamatan</span>
+                  <span className="text-[#556846] font-medium">📋 Ambil di kantor kecamatan</span>
                 </p>
               </div>
             </div>

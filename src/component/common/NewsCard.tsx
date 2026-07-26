@@ -43,7 +43,7 @@ const NewsCard = ({ id, title, excerpt, imageUrl, authorName, createdAt, slug, c
 
       <div className="p-4">
         <Link href={`/berita/${slug}`}>
-          <h3 className="font-semibold text-gray-900 mb-2 hover:text-[#1B3A6D] transition-colors line-clamp-2">{title}</h3>
+          <h3 className="font-semibold text-gray-900 mb-2 hover:text-[#556846] transition-colors line-clamp-2">{title}</h3>
         </Link>
 
         {excerpt && <p className="text-gray-600 text-sm mb-3 line-clamp-3">{excerpt}</p>}

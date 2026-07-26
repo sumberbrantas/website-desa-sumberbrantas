@@ -54,14 +54,12 @@ const StatusBar = ({ onMenuClick }: StatusBarProps = {}) => {
   return (
     <div className="fixed bottom-4 left-4 z-40 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-md shadow-sm px-3 py-2 hidden lg:block">
       <div className="flex items-center space-x-3 text-xs text-gray-600">
-
         <div className="flex items-center space-x-1">
           {icon}
-          <span className="font-medium text-[#1B3A6D]">{name}</span>
+          <span className="font-medium text-[#556846]">{name}</span>
         </div>
 
         <div className="w-px h-3 bg-gray-300"></div>
-
 
         <div className="flex items-center space-x-1">
           <FiMapPin size={12} />
@@ -69,7 +67,6 @@ const StatusBar = ({ onMenuClick }: StatusBarProps = {}) => {
         </div>
 
         <div className="w-px h-3 bg-gray-300"></div>
-
 
         <div className="flex items-center space-x-1">
           <FiClock size={12} />

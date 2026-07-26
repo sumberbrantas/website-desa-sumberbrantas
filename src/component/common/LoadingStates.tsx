@@ -63,15 +63,13 @@ export const LoadingStates = ({ type = "spinner", count = 3, className = "" }: L
   // Default: spinner
   return (
     <div className={`flex flex-col items-center justify-center py-12 ${className}`}>
-      <div className="animate-spin rounded-full border-b-2 border-[#1B3A6D] h-8 w-8"></div>
+      <div className="animate-spin rounded-full border-b-2 border-[#556846] h-8 w-8"></div>
     </div>
   );
 };
 
 // Default export untuk backward compatibility
-const LoadingStatesDefault = ({ type = "skeleton", count = 3, className = "" }: LoadingStatesProps) => (
-  <LoadingStates type={type} count={count} className={className} />
-);
+const LoadingStatesDefault = ({ type = "skeleton", count = 3, className = "" }: LoadingStatesProps) => <LoadingStates type={type} count={count} className={className} />;
 
 export default LoadingStatesDefault;
 
@@ -90,7 +88,7 @@ export const LoadingSpinner = ({ size = "md", message, className = "" }: Loading
 
   return (
     <div className={`flex flex-col items-center justify-center py-8 ${className}`}>
-      <div className={`animate-spin rounded-full border-b-2 border-[#1B3A6D] ${sizeClasses[size]} mb-2`}></div>
+      <div className={`animate-spin rounded-full border-b-2 border-[#556846] ${sizeClasses[size]} mb-2`}></div>
       {message && <div className="text-gray-600 text-sm">{message}</div>}
     </div>
   );
@@ -108,7 +106,7 @@ export const ErrorState = ({ message, onRetry, className = "" }: ErrorStateProps
       <div className="text-red-500 text-sm mb-2 text-center">Terjadi kesalahan</div>
       <div className="text-gray-500 text-xs mb-4 text-center max-w-md">{message}</div>
       {onRetry && (
-        <button onClick={onRetry} className="bg-[#1B3A6D] text-white px-4 py-2 rounded-lg hover:bg-[#152f5a] transition-colors text-sm">
+        <button onClick={onRetry} className="bg-[#556846] text-white px-4 py-2 rounded-lg hover:bg-[#152f5a] transition-colors text-sm">
           Coba Lagi
         </button>
       )}

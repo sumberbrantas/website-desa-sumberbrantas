@@ -95,7 +95,7 @@ const PengumumanDetailPage = () => {
         <Header />
         <div className="flex-grow flex items-center justify-center bg-white">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1B3A6D] mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#556846] mx-auto mb-4"></div>
             <p className="text-gray-600">Memuat pengumuman...</p>
           </div>
         </div>
@@ -126,7 +126,7 @@ const PengumumanDetailPage = () => {
                   <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                     <Link
                       href="/pengumuman"
-                      className="bg-[#1B3A6D] text-white px-8 py-2 rounded-lg font-medium border-2 border-[#1B3A6D] hover:bg-[#1B3A6D] hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                      className="bg-[#556846] text-white px-8 py-2 rounded-lg font-medium border-2 border-[#556846] hover:bg-[#556846] hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                     >
                       Kembali ke Pengumuman
                     </Link>
@@ -176,11 +176,11 @@ const PengumumanDetailPage = () => {
       <nav className="bg-gray-50 py-4">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 text-sm text-gray-600">
-            <Link href="/" className="hover:text-[#1B3A6D] transition-colors">
+            <Link href="/" className="hover:text-[#556846] transition-colors">
               Beranda
             </Link>
             <span>/</span>
-            <Link href="/pengumuman" className="hover:text-[#1B3A6D] transition-colors">
+            <Link href="/pengumuman" className="hover:text-[#556846] transition-colors">
               Pengumuman
             </Link>
             <span>/</span>
@@ -193,7 +193,7 @@ const PengumumanDetailPage = () => {
       <main className="flex-grow bg-white py-8">
         <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Back Button */}
-          <Link href="/pengumuman" className="inline-flex items-center gap-2 text-[#1B3A6D] hover:text-[#152f5a] transition-colors mb-6">
+          <Link href="/pengumuman" className="inline-flex items-center gap-2 text-[#556846] hover:text-[#3d4f35] transition-colors mb-6">
             <FiArrowLeft size={16} />
             Kembali ke Pengumuman
           </Link>
@@ -212,7 +212,7 @@ const PengumumanDetailPage = () => {
             {/* Meta Info */}
             <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600 mb-6">
               <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-[#1B3A6D] rounded-full flex items-center justify-center">
+                <div className="w-8 h-8 bg-[#556846] rounded-full flex items-center justify-center">
                   <span className="text-white text-xs font-bold">DN</span>
                 </div>
                 <span className="font-medium">{announcement.authorName}</span>
@@ -221,11 +221,11 @@ const PengumumanDetailPage = () => {
                 <FiCalendar size={16} />
                 <span>{formatDate(announcement.createdAt)}</span>
               </div>
-              <div className="flex items-center gap-2 text-[#1B3A6D]">
+              <div className="flex items-center gap-2 text-[#556846]">
                 <FiAlertCircle size={16} />
                 <span>Berlaku: {formatDateRange(announcement.startDate, announcement.endDate)}</span>
               </div>
-              <button onClick={handleShare} className="flex items-center gap-2 text-[#1B3A6D] hover:text-[#152f5a] transition-colors ml-auto">
+              <button onClick={handleShare} className="flex items-center gap-2 text-[#556846] hover:text-[#556846] transition-colors ml-auto">
                 <FiShare2 size={16} />
                 <span className="font-medium">Bagikan</span>
               </button>
@@ -244,9 +244,9 @@ const PengumumanDetailPage = () => {
           {/* Important Notice */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
             <div className="flex items-start gap-3">
-              <FiAlertCircle className="w-5 h-5 text-[#1B3A6D] flex-shrink-0 mt-0.5" />
+              <FiAlertCircle className="w-5 h-5 text-[#556846] flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-semibold text-[#1B3A6D] mb-2">Informasi Penting</h4>
+                <h4 className="font-semibold text-[#556846] mb-2">Informasi Penting</h4>
                 <p className="text-gray-700 text-sm leading-relaxed">
                   Pengumuman ini berlaku dari tanggal {formatDateRange(announcement.startDate, announcement.endDate)}. Untuk informasi lebih lanjut, silakan hubungi kantor desa atau kunjungi langsung Balai Desa Sumberbrantas.
                 </p>
@@ -261,7 +261,7 @@ const PengumumanDetailPage = () => {
                 Diterbitkan pada {formatDate(announcement.createdAt)}
                 {announcement.updatedAt && announcement.updatedAt !== announcement.createdAt && <span> • Diperbarui pada {formatDate(announcement.updatedAt)}</span>}
               </div>
-              <Link href="/pengumuman" className="inline-flex items-center gap-2 px-4 py-2 bg-[#1B3A6D] text-white rounded hover:bg-[#152f5a] transition-colors">
+              <Link href="/pengumuman" className="inline-flex items-center gap-2 px-4 py-2 bg-[#556846] text-white rounded hover:bg-[#556846] transition-colors">
                 Lihat Pengumuman Lainnya
               </Link>
             </div>
@@ -291,7 +291,7 @@ const PengumumanDetailPage = () => {
                               </div>
 
                               {/* Title */}
-                              <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-[#1B3A6D] transition-colors">{related.title}</h3>
+                              <h3 className="font-semibold text-gray-900 mb-2 line-clamp-2 group-hover:text-[#556846] transition-colors">{related.title}</h3>
 
                               {/* Date */}
                               <p className="text-sm text-gray-600">{formatDate(related.createdAt)}</p>
@@ -299,7 +299,7 @@ const PengumumanDetailPage = () => {
 
                             {/* Arrow Icon */}
                             <div className="flex-shrink-0 ml-4">
-                              <svg className="w-5 h-5 text-gray-400 group-hover:text-[#1B3A6D] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-5 h-5 text-gray-400 group-hover:text-[#556846] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                               </svg>
                             </div>

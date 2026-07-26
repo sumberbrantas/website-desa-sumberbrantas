@@ -41,7 +41,7 @@ const AnnouncementSection = () => {
         </div>
 
         <div className="text-center mt-8">
-          <Link href="/pengumuman" className="text-[#1B3A6D] hover:text-[#152f5a] font-medium transition-colors">
+          <Link href="/pengumuman" className="text-[#556846] hover:text-[#152f5a] font-medium transition-colors">
             Lihat Pengumuman Lainnya
           </Link>
         </div>

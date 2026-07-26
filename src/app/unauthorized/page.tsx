@@ -73,7 +73,7 @@ const UnauthorizedPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1B3A6D] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#556846] mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm">Memuat...</p>
         </div>
       </div>
@@ -101,7 +101,7 @@ const UnauthorizedPage = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Link
                     href="/"
-                    className="bg-[#1B3A6D] text-white px-8 py-2 rounded-lg font-medium border-2 border-[#1B3A6D] hover:bg-[#1B3A6D] hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="bg-[#556846] text-white px-8 py-2 rounded-lg font-medium border-2 border-[#556846] hover:bg-[#3d4f35] hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                   >
                     Kembali
                   </Link>
@@ -119,4 +119,3 @@ const UnauthorizedPage = () => {
 };
 
 export default UnauthorizedPage;
-

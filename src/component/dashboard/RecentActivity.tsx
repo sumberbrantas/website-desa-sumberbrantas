@@ -30,8 +30,7 @@ const RecentActivity = () => {
           type: "announcement",
           createdAt: date,
         });
-      } catch (error) {
-      }
+      } catch (error) {}
     });
 
     articles.forEach((article) => {
@@ -47,8 +46,7 @@ const RecentActivity = () => {
           type: "article",
           createdAt: date,
         });
-      } catch (error) {
-      }
+      } catch (error) {}
     });
 
     return activities.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime()).slice(0, 3);
@@ -68,7 +66,7 @@ const RecentActivity = () => {
     <div className={`bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-6 smooth-transition hover-lift ${mounted ? "smooth-reveal" : "animate-on-load"}`}>
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-2 sm:gap-0">
         <h3 className="text-lg font-semibold text-gray-900 smooth-transition">Aktivitas Terbaru</h3>
-        <button className="text-[#1B3A6D] text-xs hover:underline self-start sm:self-auto smooth-transition hover:text-[#152f5a]">Lihat Semua</button>
+        <button className="text-[#556846] text-xs hover:underline self-start sm:self-auto smooth-transition hover:text-[#152f5a]">Lihat Semua</button>
       </div>
 
       {isLoading ? (
@@ -98,4 +96,3 @@ const RecentActivity = () => {
 };
 
 export default RecentActivity;
-

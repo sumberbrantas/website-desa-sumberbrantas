@@ -33,7 +33,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requireAuth =
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1B3A6D] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#556846] mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm">Memuat...</p>
         </div>
       </div>
@@ -44,7 +44,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requireAuth =
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1B3A6D] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#556846] mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm">Mengalihkan...</p>
         </div>
       </div>
@@ -55,7 +55,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requireAuth =
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1B3A6D] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#556846] mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm">Mengalihkan ke halaman pending...</p>
         </div>
       </div>
@@ -66,7 +66,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requireAuth =
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1B3A6D] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#556846] mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm">Mengalihkan ke halaman unauthorized...</p>
         </div>
       </div>
@@ -77,7 +77,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requireAuth =
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1B3A6D] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#556846] mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm">Mengalihkan ke dashboard...</p>
         </div>
       </div>
@@ -88,4 +88,3 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requireAuth =
 };
 
 export default ProtectedRoute;
-

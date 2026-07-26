@@ -55,7 +55,7 @@ const AnnouncementList: FC<AnnouncementListProps> = ({ mounted, announcements })
                       <span className={`inline-block px-3 py-1 text-xs font-medium rounded-full ${getPriorityColor(announcement.priority)}`}>{getPriorityLabel(announcement.priority)}</span>
                     </div>
 
-                    <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#1B3A6D] transition-colors">{announcement.title}</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#556846] transition-colors">{announcement.title}</h3>
 
                     <p className="text-gray-600 text-sm mb-3 line-clamp-2">{announcement.content.length > 150 ? `${announcement.content.substring(0, 150)}...` : announcement.content}</p>
 
@@ -63,7 +63,7 @@ const AnnouncementList: FC<AnnouncementListProps> = ({ mounted, announcements })
                   </div>
 
                   <div className="ml-4 flex-shrink-0">
-                    <svg className="w-5 h-5 text-gray-400 group-hover:text-[#1B3A6D] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-gray-400 group-hover:text-[#556846] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </div>

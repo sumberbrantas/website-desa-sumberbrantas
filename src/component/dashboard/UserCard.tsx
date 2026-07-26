@@ -41,7 +41,7 @@ const UserCard = ({ user, onUpdateRole, onDeleteUser, loading, currentUserId }: 
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 hover:shadow-md smooth-transition">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center">
-          <div className="w-12 h-12 bg-[#1B3A6D] rounded-full flex items-center justify-center">
+          <div className="w-12 h-12 bg-[#556846] rounded-full flex items-center justify-center">
             <FiUser className="w-6 h-6 text-white" />
           </div>
           <div className="ml-3">
@@ -55,9 +55,7 @@ const UserCard = ({ user, onUpdateRole, onDeleteUser, loading, currentUserId }: 
             </div>
           </div>
         </div>
-        <span className={`px-3 py-1 rounded-full text-xs font-medium ${getRoleColor(user.role)}`}>
-          {getRoleLabel(user.role)}
-        </span>
+        <span className={`px-3 py-1 rounded-full text-xs font-medium ${getRoleColor(user.role)}`}>{getRoleLabel(user.role)}</span>
       </div>
 
       <div className="text-sm text-gray-600 mb-4">
@@ -81,17 +79,13 @@ const UserCard = ({ user, onUpdateRole, onDeleteUser, loading, currentUserId }: 
               value={user.role}
               onChange={(e) => onUpdateRole(user.id, e.target.value as "admin" | "pending")}
               disabled={loading}
-              className="text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent disabled:opacity-50"
+              className="text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#556846] focus:border-transparent disabled:opacity-50"
             >
               <option value="pending">Menunggu Persetujuan</option>
               <option value="admin">Administrator</option>
             </select>
           </div>
-          <button
-            onClick={() => onDeleteUser(user.id)}
-            disabled={loading}
-            className="flex items-center text-red-600 hover:text-red-700 text-sm font-medium hover:scale-105 active:scale-95 smooth-transition disabled:opacity-50"
-          >
+          <button onClick={() => onDeleteUser(user.id)} disabled={loading} className="flex items-center text-red-600 hover:text-red-700 text-sm font-medium hover:scale-105 active:scale-95 smooth-transition disabled:opacity-50">
             <FiTrash2 className="w-4 h-4 mr-1" />
             Hapus
           </button>

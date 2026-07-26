@@ -109,9 +109,7 @@ const GalleryForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
 
   return (
     <div className="space-y-6">
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
         <div className="space-y-4">
           <label className="block text-sm font-medium text-gray-700">Gambar {!isEditing && <span className="text-red-500">*</span>}</label>
 
@@ -125,12 +123,10 @@ const GalleryForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
             </div>
           )}
 
-
           <div>
             <p className="text-xs text-gray-600 mb-2">
               {isEditing && formData.imageUrl && !previewUrl ? "Gambar saat ini:" : previewUrl ? (isEditing ? "Gambar baru:" : "Preview:") : isEditing && formData.imageUrl ? "Upload gambar baru:" : ""}
             </p>
-
 
             {(isEditing && formData.imageUrl && !previewUrl) || previewUrl ? (
               <div>
@@ -159,10 +155,8 @@ const GalleryForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
                     }}
                   />
 
-
                   <div className="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs">{previewUrl ? (isEditing ? "Gambar baru" : "Preview") : "Gambar sebelumnya"}</div>
                 </div>
-
 
                 <div className="flex gap-2 mt-3">
                   <button
@@ -191,7 +185,7 @@ const GalleryForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
                       }
                     }}
                     disabled={loading}
-                    className="flex-1 bg-[#1B3A6D] text-white px-4 py-2 rounded-lg hover:bg-[#152f5a] transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
+                    className="flex-1 bg-[#556846] text-white px-4 py-2 rounded-lg hover:bg-[#152f5a] transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
                   >
                     <FiImage size={16} />
                     Preview
@@ -200,7 +194,7 @@ const GalleryForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
                     type="button"
                     onClick={() => fileInputRef.current?.click()}
                     disabled={loading}
-                    className="flex-1 border border-[#1B3A6D] text-[#1B3A6D] px-4 py-2 rounded-lg hover:bg-[#1B3A6D] hover:text-white transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
+                    className="flex-1 border border-[#556846] text-[#556846] px-4 py-2 rounded-lg hover:bg-[#556846] hover:text-white transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
                   >
                     <FiUpload size={16} />
                     Ganti Gambar
@@ -210,7 +204,7 @@ const GalleryForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
             ) : (
               <div
                 className={`border-2 border-dashed rounded-lg p-6 lg:p-8 text-center transition-colors cursor-pointer h-64 lg:h-80 flex flex-col justify-center ${
-                  dragActive ? "border-[#1B3A6D] bg-[#1B3A6D]/5" : "border-gray-300 hover:border-[#1B3A6D] hover:bg-gray-50"
+                  dragActive ? "border-[#556846] bg-[#556846]/5" : "border-gray-300 hover:border-[#556846] hover:bg-gray-50"
                 } ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
                 onDragEnter={handleDrag}
                 onDragLeave={handleDrag}
@@ -229,13 +223,11 @@ const GalleryForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
               </div>
             )}
 
-
             {((isEditing && formData.imageUrl && !previewUrl) || previewUrl) && <p className="text-xs text-gray-500 mt-2">Klik "Preview" untuk melihat gambar ukuran penuh di tab baru, atau "Ganti Gambar" untuk memilih gambar lain</p>}
           </div>
 
           <input ref={fileInputRef} type="file" accept="image/*" onChange={handleFileSelect} className="hidden" disabled={loading} />
         </div>
-
 
         <div className="space-y-6">
           <FormInput label="Judul" id="title" name="title" value={formData.title || ""} onChange={(e) => handleChange("title", e.target.value)} placeholder="Masukkan judul gambar..." required disabled={loading} />
@@ -272,7 +264,7 @@ const GalleryForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
                 id="isActive"
                 checked={formData.isActive !== undefined ? formData.isActive : true}
                 onChange={(e) => handleChange("isActive", e.target.checked)}
-                className="w-4 h-4 text-[#1B3A6D] bg-gray-100 border-gray-300 rounded focus:ring-[#1B3A6D]"
+                className="w-4 h-4 text-[#556846] bg-gray-100 border-gray-300 rounded focus:ring-[#556846]"
                 disabled={loading}
               />
               <label htmlFor="isActive" className="text-sm text-gray-700">
@@ -287,4 +279,3 @@ const GalleryForm = ({ formData = {}, onChange, onStorageError, isEditing = fals
 };
 
 export default GalleryForm;
-

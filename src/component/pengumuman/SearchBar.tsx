@@ -19,7 +19,7 @@ const SearchBar: FC<SearchBarProps> = ({ mounted, searchTerm, onSearchChange }) 
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Cari"
-          className="form-input w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent text-black smooth-transition"
+          className="form-input w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#556846] focus:border-transparent text-black smooth-transition"
         />
       </div>
     </div>

@@ -19,7 +19,7 @@ export const ErrorFallback = ({ error, onRetry, title = "Terjadi kesalahan", des
         </div>
       )}
 
-      <button onClick={onRetry} className="bg-[#1B3A6D] text-white px-4 py-2 rounded-lg hover:bg-[#152f5a] transition-colors text-sm">
+      <button onClick={onRetry} className="bg-[#556846] text-white px-4 py-2 rounded-lg hover:bg-[#3d4f35] transition-colors text-sm">
         Coba Lagi
       </button>
     </div>

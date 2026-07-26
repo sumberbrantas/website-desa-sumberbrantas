@@ -8,7 +8,7 @@ const ScrollingBadge = () => {
   const repeatedBadges = Array(8).fill(badges).flat();
 
   return (
-    <div className="bg-[#1B3A6D] text-white py-2 md:py-3 overflow-hidden w-full">
+    <div className="bg-[#556846] text-white py-2 md:py-3 overflow-hidden w-full">
       <div className="flex animate-scroll">
         {repeatedBadges.map((badge, index) => (
           <div key={index} className="flex items-center whitespace-nowrap text-xs md:text-sm font-semibold flex-shrink-0">
@@ -22,4 +22,3 @@ const ScrollingBadge = () => {
 };
 
 export default ScrollingBadge;
-

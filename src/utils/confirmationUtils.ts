@@ -3,7 +3,7 @@ import ReactDOMServer from "react-dom/server";
 import React from "react";
 import { FiAlertTriangle, FiHelpCircle, FiCheckCircle, FiXCircle, FiInfo } from "react-icons/fi";
 
-const BRAND_COLOR = "#1B3A6D";
+const BRAND_COLOR = "#556846";
 const BRAND_COLOR_HOVER = "#152f5a";
 
 const createIconHtml = (IconComponent: React.ComponentType<any>, color: string) => {
@@ -12,7 +12,7 @@ const createIconHtml = (IconComponent: React.ComponentType<any>, color: string) 
       size: 48,
       color,
       style: { display: "block", margin: "0 auto" },
-    })
+    }),
   );
 };
 
@@ -236,4 +236,3 @@ export const showInfo = (title: string, text: string, confirmButtonText: string 
     ...getCustomStyles(),
   });
 };
-

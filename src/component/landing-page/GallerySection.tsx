@@ -96,7 +96,7 @@ const GallerySection = () => {
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 smooth-transition ${mounted ? "smooth-reveal stagger-1" : "animate-on-load"}`}>
         <div className="text-center">
           <Link href="/galeri">
-            <button className="bg-[#1B3A6D] text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:bg-[#152f5a] smooth-transition text-sm md:text-base btn-animate">Lihat Galeri Lainnya</button>
+            <button className="bg-[#556846] text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold hover:bg-[#152f5a] smooth-transition text-sm md:text-base btn-animate">Lihat Galeri Lainnya</button>
           </Link>
         </div>
       </div>
@@ -105,4 +105,3 @@ const GallerySection = () => {
 };
 
 export default GallerySection;
-

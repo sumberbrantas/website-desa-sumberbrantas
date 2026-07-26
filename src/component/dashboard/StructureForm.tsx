@@ -90,7 +90,6 @@ const StructureForm = ({ formData, onChange, onStorageError, loading = false, ed
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
         <div className="space-y-4">
           <label className="block text-sm font-medium text-gray-700">Gambar Struktur {!editMode && <span className="text-red-500">*</span>}</label>
 
@@ -149,7 +148,7 @@ const StructureForm = ({ formData, onChange, onStorageError, loading = false, ed
                     }
                   }}
                   disabled={loading}
-                  className="flex-1 bg-[#1B3A6D] text-white px-4 py-2 rounded-lg hover:bg-[#152f5a] transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
+                  className="flex-1 bg-[#556846] text-white px-4 py-2 rounded-lg hover:bg-[#152f5a] transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
                 >
                   <FiImage size={16} />
                   Preview
@@ -158,7 +157,7 @@ const StructureForm = ({ formData, onChange, onStorageError, loading = false, ed
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
                   disabled={loading}
-                  className="flex-1 border border-[#1B3A6D] text-[#1B3A6D] px-4 py-2 rounded-lg hover:bg-[#1B3A6D] hover:text-white transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
+                  className="flex-1 border border-[#556846] text-[#556846] px-4 py-2 rounded-lg hover:bg-[#556846] hover:text-white transition-colors disabled:opacity-50 flex items-center justify-center gap-2 text-sm font-medium"
                 >
                   <FiUpload size={16} />
                   Ganti Gambar
@@ -174,7 +173,7 @@ const StructureForm = ({ formData, onChange, onStorageError, loading = false, ed
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               className={`border-2 border-dashed rounded-lg p-6 lg:p-8 text-center transition-colors cursor-pointer h-64 lg:h-80 flex flex-col justify-center ${
-                dragActive ? "border-[#1B3A6D] bg-[#1B3A6D]/5" : "border-gray-300 hover:border-[#1B3A6D] hover:bg-gray-50"
+                dragActive ? "border-[#556846] bg-[#556846]/5" : "border-gray-300 hover:border-[#556846] hover:bg-gray-50"
               } ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
               onClick={() => !loading && fileInputRef.current?.click()}
             >
@@ -192,9 +191,7 @@ const StructureForm = ({ formData, onChange, onStorageError, loading = false, ed
           <input ref={fileInputRef} type="file" accept="image/*" onChange={handleFileSelect} className="hidden" disabled={loading} />
         </div>
 
-
         <div className="space-y-6">
-
           <div className="space-y-2">
             <label htmlFor="name" className="block text-sm font-medium text-gray-700">
               Nama Struktur <span className="text-red-500">*</span>
@@ -205,13 +202,12 @@ const StructureForm = ({ formData, onChange, onStorageError, loading = false, ed
               value={formData.name}
               onChange={(e) => onChange("name", e.target.value)}
               placeholder="Contoh: PKK, BPD, LPMD, dll"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-[#1B3A6D] transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-[#556846] transition-colors"
               disabled={loading}
               maxLength={100}
             />
             <p className="text-xs text-gray-500">Maksimal 100 karakter</p>
           </div>
-
 
           <div className="space-y-2">
             <label htmlFor="description" className="block text-sm font-medium text-gray-700">
@@ -223,13 +219,12 @@ const StructureForm = ({ formData, onChange, onStorageError, loading = false, ed
               onChange={(e) => onChange("description", e.target.value)}
               placeholder="Deskripsi tentang struktur organisasi ini..."
               rows={6}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-[#1B3A6D] transition-colors resize-none"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-[#556846] transition-colors resize-none"
               disabled={loading}
               maxLength={500}
             />
             <p className="text-xs text-gray-500">Maksimal 500 karakter</p>
           </div>
-
 
           <div className="space-y-2">
             <label htmlFor="order" className="block text-sm font-medium text-gray-700">
@@ -243,22 +238,21 @@ const StructureForm = ({ formData, onChange, onStorageError, loading = false, ed
               placeholder="0"
               min="0"
               max="100"
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-[#1B3A6D] transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-[#556846] transition-colors"
               disabled={loading}
             />
             <p className="text-xs text-gray-500">Angka lebih kecil akan ditampilkan lebih dulu</p>
           </div>
 
-
           <div className="space-y-3">
             <label className="block text-sm font-medium text-gray-700">Status</label>
             <div className="flex items-center space-x-3">
               <label className="flex items-center">
-                <input type="radio" name="isActive" checked={formData.isActive} onChange={() => onChange("isActive", true)} className="h-4 w-4 text-[#1B3A6D] focus:ring-[#1B3A6D] border-gray-300" disabled={loading} />
+                <input type="radio" name="isActive" checked={formData.isActive} onChange={() => onChange("isActive", true)} className="h-4 w-4 text-[#556846] focus:ring-[#556846] border-gray-300" disabled={loading} />
                 <span className="ml-2 text-sm text-gray-700">Aktif</span>
               </label>
               <label className="flex items-center">
-                <input type="radio" name="isActive" checked={!formData.isActive} onChange={() => onChange("isActive", false)} className="h-4 w-4 text-[#1B3A6D] focus:ring-[#1B3A6D] border-gray-300" disabled={loading} />
+                <input type="radio" name="isActive" checked={!formData.isActive} onChange={() => onChange("isActive", false)} className="h-4 w-4 text-[#556846] focus:ring-[#556846] border-gray-300" disabled={loading} />
                 <span className="ml-2 text-sm text-gray-700">Nonaktif</span>
               </label>
             </div>
@@ -271,4 +265,3 @@ const StructureForm = ({ formData, onChange, onStorageError, loading = false, ed
 };
 
 export default StructureForm;
-

@@ -93,7 +93,9 @@ const StrukturContent = () => {
         <main className="pt-12 pb-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <p className="mb-4" style={{ color: "var(--error)" }}>{error}</p>
+              <p className="mb-4" style={{ color: "var(--error)" }}>
+                {error}
+              </p>
             </div>
           </div>
         </main>
@@ -132,7 +134,6 @@ const StrukturContent = () => {
 
       <main className={`pt-12 pb-16 smooth-transition ${mounted ? "smooth-reveal" : "animate-on-load"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
           <div className="flex justify-center mb-8">
             <div className="relative">
               <button onClick={() => setDropdownOpen(!dropdownOpen)} className="flex items-center justify-between gap-3 card-earth border px-6 py-3 min-w-[280px] hover-lift transition-colors">
@@ -162,7 +163,6 @@ const StrukturContent = () => {
             </div>
           </div>
 
-
           {dropdownOpen && <div className="fixed inset-0 z-5" onClick={() => setDropdownOpen(false)} />}
 
           <div className="text-center mb-8">
@@ -189,7 +189,7 @@ const StrukturPage = () => {
           <main className="pt-12 pb-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center">
-                <FiLoader className="animate-spin h-8 w-8 text-[#1B3A6D] mx-auto mb-4" />
+                <FiLoader className="animate-spin h-8 w-8 text-[#556846] mx-auto mb-4" />
                 <p className="text-gray-600">Memuat struktur organisasi...</p>
               </div>
             </div>
@@ -204,4 +204,3 @@ const StrukturPage = () => {
 };
 
 export default StrukturPage;
-

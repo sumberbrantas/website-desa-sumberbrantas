@@ -31,7 +31,7 @@ const StatCard = ({ icon: Icon, title, value, change, isPositive = true, loading
   return (
     <div className="bg-white rounded-lg p-4 border border-gray-100 hover:shadow-md transition-shadow">
       <div className="flex items-center justify-between mb-2">
-        <Icon className="w-6 h-6 text-[#1B3A6D]" />
+        <Icon className="w-6 h-6 text-[#556846]" />
         {change && <span className={`text-xs font-medium ${isPositive ? "text-green-600" : "text-red-500"}`}>{change}</span>}
       </div>
       <div className="space-y-1">
@@ -153,11 +153,10 @@ const VisitorStatsCard = ({ className = "" }: VisitorStatsCardProps) => {
         <StatCard icon={FiTrendingUp} title="Minggu Ini" value={formatNumber(extendedStats.weeklyVisitors)} change={`${calculateGrowthPercentage()}%`} isPositive={parseFloat(calculateGrowthPercentage()) >= 0} loading={loading} />
       </div>
 
-
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-gray-100">
         <div className="space-y-2">
           <p className="text-sm font-medium text-gray-700">Rata-rata Harian</p>
-          <p className="text-lg font-semibold text-[#1B3A6D]">
+          <p className="text-lg font-semibold text-[#556846]">
             {loading ? "..." : formatNumber(extendedStats.averageDaily)}
             <span className="text-sm font-normal text-gray-600 ml-1">pengunjung</span>
           </p>
@@ -165,7 +164,7 @@ const VisitorStatsCard = ({ className = "" }: VisitorStatsCardProps) => {
 
         <div className="space-y-2">
           <p className="text-sm font-medium text-gray-700">Hari Tertinggi</p>
-          <p className="text-lg font-semibold text-[#1B3A6D]">
+          <p className="text-lg font-semibold text-[#556846]">
             {loading ? "..." : extendedStats.peakDay || "Belum ada data"}
             {extendedStats.peakDay && <span className="text-sm font-normal text-gray-600 ml-1">({formatNumber(extendedStats.peakDayCount)})</span>}
           </p>
@@ -176,4 +175,3 @@ const VisitorStatsCard = ({ className = "" }: VisitorStatsCardProps) => {
 };
 
 export default VisitorStatsCard;
-

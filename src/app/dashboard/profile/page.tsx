@@ -94,7 +94,7 @@ const ProfilePage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1B3A6D] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#556846] mx-auto mb-4"></div>
           <p className="text-gray-600 text-sm">Memuat profil...</p>
         </div>
       </div>
@@ -135,7 +135,7 @@ const ProfilePage = () => {
 
         <div className="bg-white app-card shadow-sm border border-gray-100">
           <div className="flex items-center space-x-4 mb-6 pb-6 border-b border-gray-200">
-            <div className="w-16 h-16 bg-[#1B3A6D] rounded-full flex items-center justify-center">
+            <div className="w-16 h-16 bg-[#556846] rounded-full flex items-center justify-center">
               <span className="text-white text-xl font-bold">{profile.name?.charAt(0).toUpperCase() || "A"}</span>
             </div>
             <div>

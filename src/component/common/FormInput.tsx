@@ -32,7 +32,7 @@ const FormInput = ({ label, id, name, type = "text", value, defaultValue, placeh
         disabled={disabled}
         placeholder={placeholder}
         min={min}
-        className={`form-input app-form-input w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent text-black ${disabled ? "bg-gray-50 text-gray-500 cursor-not-allowed" : ""} ${className}`}
+        className={`form-input app-form-input w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#556846] focus:border-transparent text-black ${disabled ? "bg-gray-50 text-gray-500 cursor-not-allowed" : ""} ${className}`}
       />
     </div>
   );

@@ -115,7 +115,7 @@ const ProfilDesaForm = () => {
   if (loading || !formData) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1B3A6D]"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#556846]"></div>
       </div>
     );
   }
@@ -129,11 +129,7 @@ const ProfilDesaForm = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`py-3 px-4 border-b-2 font-medium text-sm transition-colors ${
-                activeTab === tab.id
-                  ? "border-[#1B3A6D] text-[#1B3A6D]"
-                  : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
-              }`}
+              className={`py-3 px-4 border-b-2 font-medium text-sm transition-colors ${activeTab === tab.id ? "border-[#556846] text-[#556846]" : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"}`}
             >
               {tab.label}
             </button>
@@ -156,7 +152,7 @@ const ProfilDesaForm = () => {
                   type="text"
                   value={formData.judulHalaman}
                   onChange={(e) => handleChange("judulHalaman", e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                 />
               </div>
               <div>
@@ -165,7 +161,7 @@ const ProfilDesaForm = () => {
                   type="text"
                   value={formData.subJudul}
                   onChange={(e) => handleChange("subJudul", e.target.value)}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                 />
               </div>
             </div>
@@ -181,7 +177,7 @@ const ProfilDesaForm = () => {
                 value={formData.visi.text}
                 onChange={(e) => handleChange("visi.text", e.target.value)}
                 rows={4}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
               />
             </div>
 
@@ -196,7 +192,7 @@ const ProfilDesaForm = () => {
                       order: formData.misi.length + 1,
                     })
                   }
-                  className="px-3 py-1 bg-[#1B3A6D] text-white text-sm rounded-lg hover:bg-[#152f5a]"
+                  className="px-3 py-1 bg-[#556846] text-white text-sm rounded-lg hover:bg-[#152f5a]"
                 >
                   + Tambah Misi
                 </button>
@@ -206,19 +202,29 @@ const ProfilDesaForm = () => {
                   .sort((a, b) => a.order - b.order)
                   .map((misi, index) => (
                     <div key={misi.id} className="flex items-start gap-3 bg-gray-50 p-4 rounded-lg">
-                      <span className="flex-shrink-0 w-8 h-8 bg-[#1B3A6D] text-white rounded-full flex items-center justify-center font-semibold text-sm">
-                        {index + 1}
-                      </span>
+                      <span className="flex-shrink-0 w-8 h-8 bg-[#556846] text-white rounded-full flex items-center justify-center font-semibold text-sm">{index + 1}</span>
                       <div className="flex-grow">
                         <textarea
                           value={misi.text}
-                          onChange={(e) => handleArrayItemChange("misi", formData.misi.findIndex((m) => m.id === misi.id), "text", e.target.value)}
+                          onChange={(e) =>
+                            handleArrayItemChange(
+                              "misi",
+                              formData.misi.findIndex((m) => m.id === misi.id),
+                              "text",
+                              e.target.value,
+                            )
+                          }
                           rows={2}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent text-sm"
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent text-sm"
                         />
                       </div>
                       <button
-                        onClick={() => handleRemoveArrayItem("misi", formData.misi.findIndex((m) => m.id === misi.id))}
+                        onClick={() =>
+                          handleRemoveArrayItem(
+                            "misi",
+                            formData.misi.findIndex((m) => m.id === misi.id),
+                          )
+                        }
                         className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600"
                       >
                         Hapus
@@ -239,7 +245,7 @@ const ProfilDesaForm = () => {
                 value={formData.googleMapsUrl}
                 onChange={(e) => handleChange("googleMapsUrl", e.target.value)}
                 rows={3}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                 placeholder="https://www.google.com/maps/embed?pb=..."
               />
               <p className="text-xs text-gray-500 mt-1">Dapatkan URL dari Google Maps → Share → Embed a map</p>
@@ -254,7 +260,7 @@ const ProfilDesaForm = () => {
                     type="text"
                     value={formData.statistik.luasDesa}
                     onChange={(e) => handleChange("statistik.luasDesa", e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                   />
                 </div>
                 <div>
@@ -263,7 +269,7 @@ const ProfilDesaForm = () => {
                     type="text"
                     value={formData.statistik.jumlahPenduduk}
                     onChange={(e) => handleChange("statistik.jumlahPenduduk", e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                   />
                 </div>
                 <div>
@@ -272,7 +278,7 @@ const ProfilDesaForm = () => {
                     type="text"
                     value={formData.statistik.jarakKeKecamatan}
                     onChange={(e) => handleChange("statistik.jarakKeKecamatan", e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                   />
                 </div>
                 <div>
@@ -281,7 +287,7 @@ const ProfilDesaForm = () => {
                     type="text"
                     value={formData.statistik.jarakKeKabupaten}
                     onChange={(e) => handleChange("statistik.jarakKeKabupaten", e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                   />
                 </div>
               </div>
@@ -297,7 +303,7 @@ const ProfilDesaForm = () => {
                       wilayah: "",
                     })
                   }
-                  className="px-3 py-1 bg-[#1B3A6D] text-white text-sm rounded-lg hover:bg-[#152f5a]"
+                  className="px-3 py-1 bg-[#556846] text-white text-sm rounded-lg hover:bg-[#152f5a]"
                 >
                   + Tambah Batas
                 </button>
@@ -308,7 +314,7 @@ const ProfilDesaForm = () => {
                     <select
                       value={batas.arah}
                       onChange={(e) => handleArrayItemChange("batasWilayah", index, "arah", e.target.value)}
-                      className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                      className="px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                     >
                       <option value="Utara">Utara</option>
                       <option value="Timur">Timur</option>
@@ -320,12 +326,9 @@ const ProfilDesaForm = () => {
                       value={batas.wilayah}
                       onChange={(e) => handleArrayItemChange("batasWilayah", index, "wilayah", e.target.value)}
                       placeholder="Nama wilayah"
-                      className="flex-grow px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                      className="flex-grow px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                     />
-                    <button
-                      onClick={() => handleRemoveArrayItem("batasWilayah", index)}
-                      className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600"
-                    >
+                    <button onClick={() => handleRemoveArrayItem("batasWilayah", index)} className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600">
                       Hapus
                     </button>
                   </div>
@@ -351,7 +354,7 @@ const ProfilDesaForm = () => {
                       icon: "📍",
                     })
                   }
-                  className="px-3 py-1 bg-[#1B3A6D] text-white text-sm rounded-lg hover:bg-[#152f5a]"
+                  className="px-3 py-1 bg-[#556846] text-white text-sm rounded-lg hover:bg-[#152f5a]"
                 >
                   + Tambah
                 </button>
@@ -363,26 +366,23 @@ const ProfilDesaForm = () => {
                       type="text"
                       value={item.icon}
                       onChange={(e) => handleArrayItemChange("penggunaanLahan", index, "icon", e.target.value)}
-                      className="w-16 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent text-center"
+                      className="w-16 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent text-center"
                     />
                     <input
                       type="text"
                       value={item.jenis}
                       onChange={(e) => handleArrayItemChange("penggunaanLahan", index, "jenis", e.target.value)}
                       placeholder="Jenis"
-                      className="flex-grow px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                      className="flex-grow px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                     />
                     <input
                       type="text"
                       value={item.luas}
                       onChange={(e) => handleArrayItemChange("penggunaanLahan", index, "luas", e.target.value)}
                       placeholder="Luas"
-                      className="w-32 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                      className="w-32 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                     />
-                    <button
-                      onClick={() => handleRemoveArrayItem("penggunaanLahan", index)}
-                      className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600"
-                    >
+                    <button onClick={() => handleRemoveArrayItem("penggunaanLahan", index)} className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600">
                       Hapus
                     </button>
                   </div>
@@ -405,7 +405,7 @@ const ProfilDesaForm = () => {
                       kk: 0,
                     })
                   }
-                  className="px-3 py-1 bg-[#1B3A6D] text-white text-sm rounded-lg hover:bg-[#152f5a]"
+                  className="px-3 py-1 bg-[#556846] text-white text-sm rounded-lg hover:bg-[#152f5a]"
                 >
                   + Tambah Dusun
                 </button>
@@ -418,7 +418,7 @@ const ProfilDesaForm = () => {
                       value={item.dusun}
                       onChange={(e) => handleArrayItemChange("dataDusun", index, "dusun", e.target.value)}
                       placeholder="Nama Dusun"
-                      className="flex-grow min-w-[150px] px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                      className="flex-grow min-w-[150px] px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                     />
                     <div className="flex items-center gap-2">
                       <label className="text-xs text-gray-500">RT:</label>
@@ -426,7 +426,7 @@ const ProfilDesaForm = () => {
                         type="number"
                         value={item.rt}
                         onChange={(e) => handleArrayItemChange("dataDusun", index, "rt", parseInt(e.target.value) || 0)}
-                        className="w-16 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                        className="w-16 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                       />
                     </div>
                     <div className="flex items-center gap-2">
@@ -435,7 +435,7 @@ const ProfilDesaForm = () => {
                         type="number"
                         value={item.rw}
                         onChange={(e) => handleArrayItemChange("dataDusun", index, "rw", parseInt(e.target.value) || 0)}
-                        className="w-16 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                        className="w-16 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                       />
                     </div>
                     <div className="flex items-center gap-2">
@@ -444,7 +444,7 @@ const ProfilDesaForm = () => {
                         type="number"
                         value={item.penduduk}
                         onChange={(e) => handleArrayItemChange("dataDusun", index, "penduduk", parseInt(e.target.value) || 0)}
-                        className="w-20 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                        className="w-20 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                       />
                     </div>
                     <div className="flex items-center gap-2">
@@ -453,13 +453,10 @@ const ProfilDesaForm = () => {
                         type="number"
                         value={item.kk}
                         onChange={(e) => handleArrayItemChange("dataDusun", index, "kk", parseInt(e.target.value) || 0)}
-                        className="w-20 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                        className="w-20 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                       />
                     </div>
-                    <button
-                      onClick={() => handleRemoveArrayItem("dataDusun", index)}
-                      className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600"
-                    >
+                    <button onClick={() => handleRemoveArrayItem("dataDusun", index)} className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600">
                       Hapus
                     </button>
                   </div>
@@ -480,7 +477,7 @@ const ProfilDesaForm = () => {
                       persentase: "",
                     })
                   }
-                  className="px-3 py-1 bg-[#1B3A6D] text-white text-sm rounded-lg hover:bg-[#152f5a]"
+                  className="px-3 py-1 bg-[#556846] text-white text-sm rounded-lg hover:bg-[#152f5a]"
                 >
                   + Tambah
                 </button>
@@ -493,26 +490,23 @@ const ProfilDesaForm = () => {
                       value={item.agama}
                       onChange={(e) => handleArrayItemChange("dataAgama", index, "agama", e.target.value)}
                       placeholder="Nama Agama"
-                      className="flex-grow px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                      className="flex-grow px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                     />
                     <input
                       type="number"
                       value={item.total}
                       onChange={(e) => handleArrayItemChange("dataAgama", index, "total", parseInt(e.target.value) || 0)}
                       placeholder="Jumlah"
-                      className="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                      className="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                     />
                     <input
                       type="text"
                       value={item.persentase}
                       onChange={(e) => handleArrayItemChange("dataAgama", index, "persentase", e.target.value)}
                       placeholder="%"
-                      className="w-20 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                      className="w-20 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                     />
-                    <button
-                      onClick={() => handleRemoveArrayItem("dataAgama", index)}
-                      className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600"
-                    >
+                    <button onClick={() => handleRemoveArrayItem("dataAgama", index)} className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600">
                       Hapus
                     </button>
                   </div>
@@ -533,7 +527,7 @@ const ProfilDesaForm = () => {
                       icon: "👥",
                     })
                   }
-                  className="px-3 py-1 bg-[#1B3A6D] text-white text-sm rounded-lg hover:bg-[#152f5a]"
+                  className="px-3 py-1 bg-[#556846] text-white text-sm rounded-lg hover:bg-[#152f5a]"
                 >
                   + Tambah
                 </button>
@@ -545,26 +539,23 @@ const ProfilDesaForm = () => {
                       type="text"
                       value={item.icon}
                       onChange={(e) => handleArrayItemChange("mataPencaharian", index, "icon", e.target.value)}
-                      className="w-16 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent text-center"
+                      className="w-16 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent text-center"
                     />
                     <input
                       type="text"
                       value={item.jenis}
                       onChange={(e) => handleArrayItemChange("mataPencaharian", index, "jenis", e.target.value)}
                       placeholder="Jenis pekerjaan"
-                      className="flex-grow px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                      className="flex-grow px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                     />
                     <input
                       type="number"
                       value={item.jumlah}
                       onChange={(e) => handleArrayItemChange("mataPencaharian", index, "jumlah", parseInt(e.target.value) || 0)}
                       placeholder="Jumlah"
-                      className="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+                      className="w-24 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#556846] focus:border-transparent"
                     />
-                    <button
-                      onClick={() => handleRemoveArrayItem("mataPencaharian", index)}
-                      className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600"
-                    >
+                    <button onClick={() => handleRemoveArrayItem("mataPencaharian", index)} className="flex-shrink-0 px-3 py-1 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600">
                       Hapus
                     </button>
                   </div>
@@ -577,11 +568,7 @@ const ProfilDesaForm = () => {
 
       {/* Save Button */}
       <div className="flex justify-end">
-        <button
-          onClick={handleSave}
-          disabled={saving}
-          className="px-6 py-3 bg-[#1B3A6D] text-white font-medium rounded-lg hover:bg-[#152f5a] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
-        >
+        <button onClick={handleSave} disabled={saving} className="px-6 py-3 bg-[#556846] text-white font-medium rounded-lg hover:bg-[#152f5a] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2">
           {saving ? (
             <>
               <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>

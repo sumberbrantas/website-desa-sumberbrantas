@@ -35,7 +35,7 @@ const Pagination: FC<PaginationProps> = ({ mounted, currentPage, totalPages, onP
           <button
             key={page}
             onClick={() => onPageChange(page)}
-            className={`flex items-center justify-center w-8 h-8 rounded-full font-medium text-sm transition-colors ${currentPage === page ? "bg-[#1B3A6D] text-white" : "text-gray-700 hover:bg-gray-100"}`}
+            className={`flex items-center justify-center w-8 h-8 rounded-full font-medium text-sm transition-colors ${currentPage === page ? "bg-[#556846] text-white" : "text-gray-700 hover:bg-gray-100"}`}
           >
             {page}
           </button>
@@ -60,7 +60,7 @@ const Pagination: FC<PaginationProps> = ({ mounted, currentPage, totalPages, onP
 
       <div className="flex items-center gap-2 ml-4">
         <span className="text-sm text-gray-600">Page</span>
-        <input type="number" min="1" max={totalPages} value={currentPage} onChange={handleInputChange} className="w-12 h-8 text-center text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#1B3A6D]" />
+        <input type="number" min="1" max={totalPages} value={currentPage} onChange={handleInputChange} className="w-12 h-8 text-center text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-[#556846]" />
         <span className="text-sm text-gray-600">of {totalPages}</span>
       </div>
     </div>

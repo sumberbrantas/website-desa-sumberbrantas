@@ -90,7 +90,7 @@ export const UserFilters = ({ searchTerm, onSearchChange, roleFilter, onRoleFilt
               placeholder="Cari nama atau email..."
               value={searchTerm}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#556846] focus:border-transparent"
             />
           </div>
         </div>
@@ -100,7 +100,7 @@ export const UserFilters = ({ searchTerm, onSearchChange, roleFilter, onRoleFilt
             <select
               value={roleFilter}
               onChange={(e) => onRoleFilterChange(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent appearance-none"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#556846] focus:border-transparent appearance-none"
             >
               <option value="all">Semua Role</option>
               <option value="pending">Menunggu Persetujuan</option>

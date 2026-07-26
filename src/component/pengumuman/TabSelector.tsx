@@ -11,13 +11,9 @@ const TabSelector: FC<TabSelectorProps> = ({ mounted }) => {
       <div className="flex justify-center">
         <div className="bg-white rounded-lg p-1 shadow-sm">
           <Link href="/berita">
-            <button className="px-8 py-3 rounded-md font-medium text-sm transition-all duration-200 text-gray-600 hover:text-gray-900">
-              Berita
-            </button>
+            <button className="px-8 py-3 rounded-md font-medium text-sm transition-all duration-200 text-gray-600 hover:text-gray-900">Berita</button>
           </Link>
-          <button className="px-8 py-3 rounded-md font-medium text-sm transition-all duration-200 bg-[#1B3A6D] text-white shadow-sm">
-            Pengumuman
-          </button>
+          <button className="px-8 py-3 rounded-md font-medium text-sm transition-all duration-200 bg-[#556846] text-white shadow-sm">Pengumuman</button>
         </div>
       </div>
     </div>

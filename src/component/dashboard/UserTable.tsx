@@ -39,7 +39,7 @@ const UserTable = ({ users, onUpdateRole, onDeleteUser, loading, currentUserId }
     { key: "user", label: "Pengguna", sortable: false },
     { key: "role", label: "Role", sortable: true },
     { key: "createdAt", label: "Terdaftar", sortable: true },
-    { key: "actions", label: "Aksi", sortable: false }
+    { key: "actions", label: "Aksi", sortable: false },
   ];
 
   return (
@@ -49,10 +49,7 @@ const UserTable = ({ users, onUpdateRole, onDeleteUser, loading, currentUserId }
           <thead className="bg-gray-50">
             <tr>
               {columns.map((column) => (
-                <th
-                  key={column.key}
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
+                <th key={column.key} className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   {column.label}
                 </th>
               ))}
@@ -66,27 +63,21 @@ const UserTable = ({ users, onUpdateRole, onDeleteUser, loading, currentUserId }
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
                       <div className="flex-shrink-0 w-10 h-10">
-                        <div className="w-10 h-10 bg-[#1B3A6D] rounded-full flex items-center justify-center">
+                        <div className="w-10 h-10 bg-[#556846] rounded-full flex items-center justify-center">
                           <FiUser className="w-5 h-5 text-white" />
                         </div>
                       </div>
                       <div className="ml-4">
                         <div className="text-sm font-medium text-gray-900">
                           {user.name}
-                          {isCurrentUser && (
-                            <span className="ml-2 px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">
-                              Anda
-                            </span>
-                          )}
+                          {isCurrentUser && <span className="ml-2 px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded-full">Anda</span>}
                         </div>
                         <div className="text-sm text-gray-500">{user.email}</div>
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${getRoleColor(user.role)}`}>
-                      {getRoleLabel(user.role)}
-                    </span>
+                    <span className={`inline-flex px-2 py-1 text-xs font-medium rounded-full ${getRoleColor(user.role)}`}>{getRoleLabel(user.role)}</span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                     <div className="flex items-center">
@@ -101,17 +92,12 @@ const UserTable = ({ users, onUpdateRole, onDeleteUser, loading, currentUserId }
                           value={user.role}
                           onChange={(e) => onUpdateRole(user.id, e.target.value as "admin" | "pending")}
                           disabled={loading}
-                          className="text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent disabled:opacity-50"
+                          className="text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[#556846] focus:border-transparent disabled:opacity-50"
                         >
                           <option value="pending">Menunggu Persetujuan</option>
                           <option value="admin">Administrator</option>
                         </select>
-                        <button
-                          onClick={() => onDeleteUser(user.id)}
-                          disabled={loading}
-                          className="text-red-600 hover:text-red-700 hover:scale-110 active:scale-95 smooth-transition disabled:opacity-50"
-                          title="Hapus pengguna"
-                        >
+                        <button onClick={() => onDeleteUser(user.id)} disabled={loading} className="text-red-600 hover:text-red-700 hover:scale-110 active:scale-95 smooth-transition disabled:opacity-50" title="Hapus pengguna">
                           <FiTrash2 className="w-4 h-4" />
                         </button>
                       </div>

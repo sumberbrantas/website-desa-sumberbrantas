@@ -30,7 +30,7 @@ const FormTextarea = ({ label, id, name, value, defaultValue, placeholder, rows 
         disabled={disabled}
         placeholder={placeholder}
         rows={rows}
-        className={`form-input app-form-input w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent text-black ${
+        className={`form-input app-form-input w-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#556846] focus:border-transparent text-black ${
           disabled ? "bg-gray-50 text-gray-500 cursor-not-allowed" : ""
         } ${className}`}
       />

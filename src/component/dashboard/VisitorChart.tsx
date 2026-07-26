@@ -48,8 +48,8 @@ const VisitorChart = ({ type = "line", timeRange = "7days", className = "" }: Vi
               datasets: [
                 {
                   data: [todayVisitors, weeklyVisitors - todayVisitors, otherVisitors],
-                  backgroundColor: ["#1B3A6D", "#4F87C7", "#E5E7EB"],
-                  borderColor: ["#1B3A6D", "#4F87C7", "#E5E7EB"],
+                  backgroundColor: ["#556846", "#4F87C7", "#E5E7EB"],
+                  borderColor: ["#556846", "#4F87C7", "#E5E7EB"],
                   borderWidth: 2,
                 },
               ],
@@ -63,12 +63,12 @@ const VisitorChart = ({ type = "line", timeRange = "7days", className = "" }: Vi
                 {
                   label: "Pengunjung Harian",
                   data: visitors,
-                  borderColor: "#1B3A6D",
+                  borderColor: "#556846",
                   backgroundColor: type === "bar" ? "rgba(27, 58, 109, 0.1)" : "rgba(27, 58, 109, 0.1)",
                   borderWidth: 2,
                   fill: type === "line",
                   tension: 0.4,
-                  pointBackgroundColor: "#1B3A6D",
+                  pointBackgroundColor: "#556846",
                   pointBorderColor: "#fff",
                   pointBorderWidth: 2,
                   pointRadius: 4,
@@ -95,7 +95,7 @@ const VisitorChart = ({ type = "line", timeRange = "7days", className = "" }: Vi
               {
                 label: "Pengunjung Harian",
                 data,
-                borderColor: "#1B3A6D",
+                borderColor: "#556846",
                 backgroundColor: "rgba(27, 58, 109, 0.1)",
                 borderWidth: 2,
                 fill: type === "line",
@@ -125,7 +125,7 @@ const VisitorChart = ({ type = "line", timeRange = "7days", className = "" }: Vi
             {
               label: "Pengunjung Harian",
               data,
-              borderColor: "#1B3A6D",
+              borderColor: "#556846",
               backgroundColor: "rgba(27, 58, 109, 0.1)",
               borderWidth: 2,
               fill: type === "line",
@@ -162,7 +162,7 @@ const VisitorChart = ({ type = "line", timeRange = "7days", className = "" }: Vi
         backgroundColor: "rgba(0, 0, 0, 0.8)",
         titleColor: "#fff",
         bodyColor: "#fff",
-        borderColor: "#1B3A6D",
+        borderColor: "#556846",
         borderWidth: 1,
         cornerRadius: 8,
         displayColors: false,
@@ -259,4 +259,3 @@ const VisitorChart = ({ type = "line", timeRange = "7days", className = "" }: Vi
 };
 
 export default VisitorChart;
-
