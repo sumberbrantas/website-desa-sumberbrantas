@@ -195,9 +195,8 @@ body.sidebar-open {
 
 @media (max-width: 639px) {
   .mobile-menu-sidebar-container {
-    display: none !important;
   }
-  
+
   .mobile-menu-sidebar {
     width: 100%;
     right: 0;
@@ -392,4 +391,3 @@ body.sidebar-open {
 .user-dropdown-btn:hover .user-avatar {
   transform: scale(1.05);
 }
-
