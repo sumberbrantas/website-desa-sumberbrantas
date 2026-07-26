@@ -5,7 +5,7 @@ import Header from "@/component/landing-page/Header";
 import VideoHero from "@/component/landing-page/VideoHero";
 import InfoCards from "@/component/landing-page/InfoCards";
 import NewsSection from "@/component/landing-page/NewsSection";
-import AgendaSection from "@/component/landing-page/AgendaSection";
+// import AgendaSection from "@/component/landing-page/AgendaSection";
 import DocumentsSection from "@/component/landing-page/DocumentsSection";
 import AccommodationsSection from "@/component/landing-page/AccommodationsSection";
 import DestinationsSection from "@/component/landing-page/DestinationsSection";
@@ -31,7 +31,7 @@ export default function Home() {
       <VideoHero />
       <InfoCards />
       <NewsSection />
-      <AgendaSection />
+      {/* <AgendaSection /> */}
       <DocumentsSection />
       <AccommodationsSection />
       <DestinationsSection />
