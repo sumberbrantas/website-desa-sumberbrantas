@@ -32,7 +32,7 @@ const BeritaPage = () => {
     (article) =>
       article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (article.content && article.content.toLowerCase().includes(searchTerm.toLowerCase())) ||
-      (article.excerpt && article.excerpt.toLowerCase().includes(searchTerm.toLowerCase()))
+      (article.excerpt && article.excerpt.toLowerCase().includes(searchTerm.toLowerCase())),
   );
 
   const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
@@ -62,7 +62,7 @@ const BeritaPage = () => {
           <div className="text-center">
             <h2 className="text-xl font-semibold text-gray-900 mb-2">Gagal memuat berita</h2>
             <p className="text-gray-600">{error}</p>
-            <button onClick={refetch} className="mt-4 px-4 py-2 bg-[#1B3A6D] text-white rounded hover:bg-[#152f5a] transition-colors">
+            <button onClick={refetch} className="mt-4 px-4 py-2 bg-[#556846] text-white rounded hover:bg-[#3d4f35] transition-colors">
               Coba Lagi
             </button>
           </div>
@@ -89,7 +89,7 @@ const BeritaPage = () => {
         <div className={`mb-8 smooth-transition ${mounted ? "smooth-reveal stagger-1" : "animate-on-load"}`}>
           <div className="flex justify-center">
             <div className="bg-white rounded-lg p-1 shadow-sm">
-              <button className="px-8 py-3 rounded-md font-medium text-sm transition-all duration-200 bg-[#1B3A6D] text-white ">Berita</button>
+              <button className="px-8 py-3 rounded-md font-medium text-sm transition-all duration-200 bg-[#556846] text-white ">Berita</button>
               <Link href="/pengumuman">
                 <button className="px-8 py-3 font-medium text-sm transition-all duration-20 text-gray-600 hover:text-gray-900">Pengumuman</button>
               </Link>
@@ -106,7 +106,7 @@ const BeritaPage = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Cari"
-                className="form-input w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1B3A6D] focus:border-transparent text-black"
+                className="form-input w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#556846] focus:border-transparent text-black"
               />
             </div>
           </form>
@@ -154,4 +154,3 @@ const BeritaPage = () => {
 };
 
 export default BeritaPage;
-

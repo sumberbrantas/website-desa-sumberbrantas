@@ -122,7 +122,7 @@ const GalleryPage = () => {
                       placeholder="Cari gambar..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full px-4 py-2 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#1B3A6D] focus:ring-1 focus:ring-[#1B3A6D]"
+                      className="w-full px-4 py-2 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-[#556846] focus:ring-1 focus:ring-[#556846]"
                     />
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3">
                       <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,7 +142,7 @@ const GalleryPage = () => {
                         key={category.value}
                         onClick={() => setSelectedCategory(category.value)}
                         className={`px-4 py-2 md:px-6 md:py-3 rounded-lg font-medium text-sm md:text-base transition-colors flex items-center gap-2 ${
-                          selectedCategory === category.value ? "bg-[#1B3A6D] text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
+                          selectedCategory === category.value ? "bg-[#556846] text-white" : "bg-gray-50 text-gray-700 hover:bg-gray-100"
                         }`}
                       >
                         {category.label}
@@ -187,7 +187,7 @@ const GalleryPage = () => {
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Tidak Ada Gambar</h3>
                     <p className="text-gray-600 mb-4">Belum ada gambar yang tersedia dalam galeri.</p>
-                    <button onClick={() => refetch()} className="bg-[#1B3A6D] text-white px-4 py-2 rounded hover:bg-[#152f5a] transition-colors">
+                    <button onClick={() => refetch()} className="bg-[#556846] text-white px-4 py-2 rounded hover:bg-[#3d4f35] transition-colors">
                       Refresh
                     </button>
                   </div>
@@ -217,7 +217,7 @@ const GalleryPage = () => {
                         </button>
                       )}
                       {selectedCategory !== "all" && (
-                        <button onClick={() => setSelectedCategory("all")} className="bg-[#1B3A6D] text-white px-4 py-2 rounded hover:bg-[#152f5a] transition-colors text-sm">
+                        <button onClick={() => setSelectedCategory("all")} className="bg-[#556846] text-white px-4 py-2 rounded hover:bg-[#152f5a] transition-colors text-sm">
                           Lihat Semua
                         </button>
                       )}
@@ -288,7 +288,7 @@ const GalleryPage = () => {
                 {selectedImageData.description && <p className="text-gray-600 mb-4">{selectedImageData.description}</p>}
 
                 <div className="mb-4">
-                  <span className="inline-block px-3 py-1 text-sm bg-[#1B3A6D] text-white rounded-full">{categories.find((c) => c.value === selectedImageData.category)?.label || selectedImageData.category}</span>
+                  <span className="inline-block px-3 py-1 text-sm bg-[#556846] text-white rounded-full">{categories.find((c) => c.value === selectedImageData.category)?.label || selectedImageData.category}</span>
                 </div>
 
                 {selectedImageData.createdAt && (

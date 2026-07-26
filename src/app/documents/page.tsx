@@ -21,25 +21,22 @@ export default function DocumentsPage() {
 
   const filteredDocuments = documents.filter((doc) => {
     const matchesCategory = selectedCategory === "all" || doc.category === selectedCategory;
-    const matchesSearch =
-      searchTerm === "" ||
-      doc.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      doc.description?.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = searchTerm === "" || doc.title.toLowerCase().includes(searchTerm.toLowerCase()) || doc.description?.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   const getCategoryColor = (category: string) => {
     const colors: { [key: string]: string } = {
-      "Profil Desa": "bg-blue-100 text-blue-800",
-      "Peta Potensi": "bg-green-100 text-green-800",
-      "Destinasi Wisata": "bg-yellow-100 text-yellow-800",
-      "Penginapan": "bg-purple-100 text-purple-800",
-      "UMKM": "bg-pink-100 text-pink-800",
-      "Layanan": "bg-cyan-100 text-cyan-800",
-      "Regulasi": "bg-orange-100 text-orange-800",
-      "Lainnya": "bg-gray-100 text-gray-800",
+      "Profil Desa": "bg-[#efe9d5] text-[#4e361e]", // Krem gelap & cokelat (persis seperti header)
+      "Peta Potensi": "bg-[#e9eddf] text-[#556846]", // Hijau earth tone
+      "Destinasi Wisata": "bg-[#f5e6d3] text-[#8b6914]", // Kuning kecokelatan
+      Penginapan: "bg-[#ebdcd0] text-[#6c5134]", // Cokelat kopi
+      UMKM: "bg-[#e3dec8] text-[#5a442c]", // Cokelat walnut
+      Layanan: "bg-[#dbe0d7] text-[#4a7c59]", // Hijau pudar
+      Regulasi: "bg-[#e6ddc5] text-[#3a2a1a]", // Pasir gelap
+      Lainnya: "bg-[#efe9d5] text-[#4e361e]",
     };
-    return colors[category] || "bg-gray-100 text-gray-800";
+    return colors[category] || "bg-[#efe9d5] text-[#4e361e]";
   };
 
   return (
@@ -47,14 +44,11 @@ export default function DocumentsPage() {
       <Header />
 
       <main className="flex-grow">
-        <div
-          className={`relative py-20 px-4 transition-all duration-700 ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-          style={{ backgroundColor: "var(--background-alt)" }}
-        >
+        <div className={`relative py-20 px-4 transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ backgroundColor: "var(--background-alt)" }}>
           <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "var(--foreground-dark)" }}>Dokumen Desa</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "var(--foreground-dark)" }}>
+              Dokumen Desa
+            </h1>
             <p className="text-xl max-w-2xl mx-auto" style={{ color: "var(--foreground)" }}>
               Kumpulan dokumen penting yang dapat dilihat dan diunduh melalui Google Drive
             </p>
@@ -77,11 +71,7 @@ export default function DocumentsPage() {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedCategory("all")}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  selectedCategory === "all"
-                    ? "text-white shadow-md"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === "all" ? "text-white shadow-md" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 style={selectedCategory === "all" ? { backgroundColor: "var(--primary)" } : {}}
               >
                 Semua
@@ -90,11 +80,7 @@ export default function DocumentsPage() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                    selectedCategory === category
-                      ? "text-white shadow-md"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === category ? "text-white shadow-md" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                   style={selectedCategory === category ? { backgroundColor: "var(--primary)" } : {}}
                 >
                   {category}
@@ -121,38 +107,20 @@ export default function DocumentsPage() {
           ) : filteredDocuments.length === 0 ? (
             <div className="text-center py-16">
               <FiFile size={64} className="mx-auto text-gray-300 mb-4" />
-              <p className="text-xl text-gray-500">
-                {searchTerm || selectedCategory !== "all"
-                  ? "Tidak ada dokumen yang sesuai dengan pencarian"
-                  : "Belum ada dokumen yang tersedia"}
-              </p>
+              <p className="text-xl text-gray-500">{searchTerm || selectedCategory !== "all" ? "Tidak ada dokumen yang sesuai dengan pencarian" : "Belum ada dokumen yang tersedia"}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredDocuments.map((doc) => (
-                <a
-                  key={doc.id}
-                  href={doc.fileUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100"
-                >
+                <a key={doc.id} href={doc.fileUrl} target="_blank" rel="noopener noreferrer" className="group bg-white rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                   <div className="flex items-start gap-4">
                     <div className="bg-earth-sand p-3 rounded-lg group-hover:bg-earth-grullo transition-colors">
                       <FiFile className="text-earth-dark" size={24} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full mb-2 ${getCategoryColor(doc.category)}`}>
-                        {doc.category}
-                      </span>
-                      <h3 className="font-semibold text-lg mb-1 line-clamp-2 text-earth-dark">
-                        {doc.title}
-                      </h3>
-                      {doc.description && (
-                        <p className="text-sm text-earth-muted line-clamp-2 mb-3">
-                          {doc.description}
-                        </p>
-                      )}
+                      <span className={`inline-block px-2 py-0.5 text-xs font-medium rounded-full mb-2 ${getCategoryColor(doc.category)}`}>{doc.category}</span>
+                      <h3 className="font-semibold text-lg mb-1 line-clamp-2 text-earth-dark">{doc.title}</h3>
+                      {doc.description && <p className="text-sm text-earth-muted line-clamp-2 mb-3">{doc.description}</p>}
                       <div className="flex items-center gap-2 text-sm font-medium text-earth-accent">
                         <FiExternalLink size={16} />
                         <span>Buka di Google Drive</span>
