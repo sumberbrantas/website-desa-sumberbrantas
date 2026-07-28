@@ -25,6 +25,14 @@ const GalleryPage = () => {
   const { remove, loading: deleteLoading } = useGalleryImageActions();
   const { user } = useAuth();
 
+  const getProxiedImageUrl = (url?: string | null) => {
+    if (!url) return "/kantor_desa.jpg";
+    if (url.includes("i.ibb.co")) {
+      return `https://wsrv.nl/?url=${encodeURIComponent(url)}`;
+    }
+    return url;
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setMounted(true);
@@ -161,7 +169,7 @@ const GalleryPage = () => {
       render: (value: string) => (
         <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden">
           <img
-            src={value || "/kantor_desa.jpg"}
+            src={getProxiedImageUrl(value)}
             alt="Gallery"
             className="w-full h-full object-cover"
             onError={(e) => {

@@ -10,6 +10,13 @@ export default function DestinationsPage() {
   const [mounted, setMounted] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const getProxiedImageUrl = (url?: string | null) => {
+    if (!url) return "/kantor_desa.jpg";
+    if (url.includes("i.ibb.co")) {
+      return `https://wsrv.nl/?url=${encodeURIComponent(url)}`;
+    }
+    return url;
+  };
 
   const { destinations, loading, error } = useActiveDestinations();
   const { categories } = useDestinationCategories();
@@ -21,10 +28,7 @@ export default function DestinationsPage() {
 
   const filteredDestinations = destinations.filter((dest) => {
     const matchesSearch =
-      searchTerm === "" ||
-      dest.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      dest.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      dest.location.toLowerCase().includes(searchTerm.toLowerCase());
+      searchTerm === "" || dest.name.toLowerCase().includes(searchTerm.toLowerCase()) || dest.description?.toLowerCase().includes(searchTerm.toLowerCase()) || dest.location.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "all" || dest.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -34,14 +38,11 @@ export default function DestinationsPage() {
       <Header />
 
       <main className="flex-grow">
-        <div
-          className={`relative py-20 px-4 transition-all duration-700 ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-          style={{ backgroundColor: "var(--background-alt)" }}
-        >
+        <div className={`relative py-20 px-4 transition-all duration-700 ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`} style={{ backgroundColor: "var(--background-alt)" }}>
           <div className="max-w-7xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "var(--foreground-dark)" }}>Destinasi Wisata</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4" style={{ color: "var(--foreground-dark)" }}>
+              Destinasi Wisata
+            </h1>
             <p className="text-xl max-w-2xl mx-auto" style={{ color: "var(--foreground)" }}>
               Temukan tempat wisata menarik di desa kami
             </p>
@@ -63,9 +64,7 @@ export default function DestinationsPage() {
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedCategory("all")}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  selectedCategory === "all" ? "text-white shadow-md" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === "all" ? "text-white shadow-md" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 style={selectedCategory === "all" ? { backgroundColor: "var(--primary)" } : {}}
               >
                 Semua
@@ -74,9 +73,7 @@ export default function DestinationsPage() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                    selectedCategory === cat ? "text-white shadow-md" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all ${selectedCategory === cat ? "text-white shadow-md" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                   style={selectedCategory === cat ? { backgroundColor: "var(--primary)" } : {}}
                 >
                   {cat}
@@ -101,25 +98,20 @@ export default function DestinationsPage() {
           ) : filteredDestinations.length === 0 ? (
             <div className="text-center py-16">
               <FiMapPin size={64} className="mx-auto text-gray-300 mb-4" />
-              <p className="text-xl text-gray-500">
-                {searchTerm || selectedCategory !== "all"
-                  ? "Tidak ada destinasi yang sesuai"
-                  : "Belum ada destinasi yang tersedia"}
-              </p>
+              <p className="text-xl text-gray-500">{searchTerm || selectedCategory !== "all" ? "Tidak ada destinasi yang sesuai" : "Belum ada destinasi yang tersedia"}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredDestinations.map((dest) => (
-                <div
-                  key={dest.id}
-                  className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
-                >
+                <div key={dest.id} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                   <div className="relative h-48 overflow-hidden">
                     <img
-                      src={dest.imageUrl || "/kantor_desa.jpg"}
+                      src={getProxiedImageUrl(dest.imageUrl)}
                       alt={dest.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      onError={(e) => { (e.target as HTMLImageElement).src = "/kantor_desa.jpg"; }}
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = "/kantor_desa.jpg";
+                      }}
                     />
                     {dest.category && (
                       <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full">
@@ -137,11 +129,7 @@ export default function DestinationsPage() {
                         <span>{dest.location}</span>
                       </div>
                     )}
-                    {dest.description && (
-                      <p className="text-sm text-gray-600 line-clamp-2">
-                        {dest.description}
-                      </p>
-                    )}
+                    {dest.description && <p className="text-sm text-gray-600 line-clamp-2">{dest.description}</p>}
                   </div>
                 </div>
               ))}

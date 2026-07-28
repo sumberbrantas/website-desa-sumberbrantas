@@ -12,6 +12,14 @@ const StrukturContent = () => {
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const getProxiedImageUrl = (url?: string | null) => {
+    if (!url) return "/struktur-desa.png";
+    if (url.includes("i.ibb.co")) {
+      return `https://wsrv.nl/?url=${encodeURIComponent(url)}`;
+    }
+    return url;
+  };
+
   const searchParams = useSearchParams();
   const structureId = searchParams?.get("id");
 
@@ -55,7 +63,7 @@ const StrukturContent = () => {
       <div className="flex justify-center">
         <div className="w-full max-w-4xl">
           <img
-            src={currentStructure.imageUrl}
+            src={getProxiedImageUrl(currentStructure.imageUrl)}
             alt={currentStructure.name}
             className="w-full h-auto rounded-lg"
             onError={(e) => {

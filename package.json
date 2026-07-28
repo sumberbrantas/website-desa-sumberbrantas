@@ -1,6 +1,6 @@
 {
-  "name": "desa-ngebruk",
-  "version": "0.1.0",
+  "name": "web-desa",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -25,6 +25,14 @@ const DestinationsPage = () => {
   const { remove } = useDestinationActions();
   const { user } = useAuth();
 
+  const getProxiedImageUrl = (url?: string | null) => {
+    if (!url) return "/kantor_desa.jpg";
+    if (url.includes("i.ibb.co")) {
+      return `https://wsrv.nl/?url=${encodeURIComponent(url)}`;
+    }
+    return url;
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => setMounted(true), 100);
     return () => clearTimeout(timer);
@@ -113,17 +121,14 @@ const DestinationsPage = () => {
     }
   };
 
-  const getStatusBadge = (isActive: boolean) => (
-    isActive
-      ? <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Aktif</span>
-      : <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Nonaktif</span>
-  );
+  const getStatusBadge = (isActive: boolean) =>
+    isActive ? (
+      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Aktif</span>
+    ) : (
+      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Nonaktif</span>
+    );
 
-  const getCategoryBadge = (category: string) => (
-    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-      {category || "Lainnya"}
-    </span>
-  );
+  const getCategoryBadge = (category: string) => <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">{category || "Lainnya"}</span>;
 
   const columns = [
     {
@@ -132,12 +137,28 @@ const DestinationsPage = () => {
       className: "w-24",
       render: (value: string) => (
         <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden">
-          <img src={value || "/kantor_desa.jpg"} alt="Destination" className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/kantor_desa.jpg"; }} />
+          <img
+            src={getProxiedImageUrl(value)}
+            alt="Destination"
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "/kantor_desa.jpg";
+            }}
+          />
         </div>
       ),
     },
     { key: "name", label: "Nama", className: "font-medium text-gray-900" },
-    { key: "location", label: "Lokasi", render: (v: string) => <div className="flex items-center gap-1 text-sm text-gray-600"><FiMapPin size={14} /><span>{v || "-"}</span></div> },
+    {
+      key: "location",
+      label: "Lokasi",
+      render: (v: string) => (
+        <div className="flex items-center gap-1 text-sm text-gray-600">
+          <FiMapPin size={14} />
+          <span>{v || "-"}</span>
+        </div>
+      ),
+    },
     { key: "category", label: "Kategori", render: (v: string) => getCategoryBadge(v) },
     { key: "isActive", label: "Status", render: (v: boolean) => getStatusBadge(v) },
     { key: "createdAt", label: "Dibuat", render: (v: any) => <span className="text-sm text-gray-500">{formatDate(v)}</span> },
@@ -178,7 +199,7 @@ const DestinationsPage = () => {
             mounted={mounted}
             loading={loading && destinations.length === 0}
             error={error}
-            onRetry={() => isSearching ? searchDestinationsPaginated(searchTerm) : fetchDestinationsPaginated(currentPage, 10, statusFilter === "Active" ? "active" : statusFilter === "Inactive" ? "inactive" : "all")}
+            onRetry={() => (isSearching ? searchDestinationsPaginated(searchTerm) : fetchDestinationsPaginated(currentPage, 10, statusFilter === "Active" ? "active" : statusFilter === "Inactive" ? "inactive" : "all"))}
             emptyMessage={searchTerm ? "Tidak ditemukan destinasi yang sesuai" : "Belum ada destinasi yang ditambahkan"}
           />
           {!isSearching && (

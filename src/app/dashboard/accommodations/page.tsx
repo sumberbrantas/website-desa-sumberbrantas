@@ -25,6 +25,14 @@ const AccommodationsPage = () => {
   const { remove, loading: deleteLoading } = useAccommodationActions();
   const { user } = useAuth();
 
+  const getProxiedImageUrl = (url?: string | null) => {
+    if (!url) return "/kantor_desa.jpg";
+    if (url.includes("i.ibb.co")) {
+      return `https://wsrv.nl/?url=${encodeURIComponent(url)}`;
+    }
+    return url;
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setMounted(true);
@@ -122,17 +130,9 @@ const AccommodationsPage = () => {
 
   const getStatusBadge = (isActive: boolean) => {
     if (isActive) {
-      return (
-        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-          Aktif
-        </span>
-      );
+      return <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Aktif</span>;
     }
-    return (
-      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-        Nonaktif
-      </span>
-    );
+    return <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Nonaktif</span>;
   };
 
   const columns = [
@@ -143,7 +143,7 @@ const AccommodationsPage = () => {
       render: (value: string) => (
         <div className="w-16 h-16 bg-gray-100 rounded-lg overflow-hidden">
           <img
-            src={value || "/kantor_desa.jpg"}
+            src={getProxiedImageUrl(value)}
             alt="Accommodation"
             className="w-full h-full object-cover"
             onError={(e) => {
@@ -172,14 +172,12 @@ const AccommodationsPage = () => {
     {
       key: "priceRange",
       label: "Harga",
-      render: (value: string) => (
-        <span className="text-sm text-gray-600">{value || "-"}</span>
-      ),
+      render: (value: string) => <span className="text-sm text-gray-600">{value || "-"}</span>,
     },
     {
       key: "whatsappNumber",
       label: "WhatsApp",
-      render: (value: string) => (
+      render: (value: string) =>
         value ? (
           <div className="flex items-center gap-1 text-sm text-green-600">
             <FiPhone size={14} />
@@ -187,8 +185,7 @@ const AccommodationsPage = () => {
           </div>
         ) : (
           <span className="text-sm text-gray-400">-</span>
-        )
-      ),
+        ),
     },
     {
       key: "isActive",

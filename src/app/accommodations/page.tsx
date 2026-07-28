@@ -20,7 +20,7 @@ export default function AccommodationsPage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // 1. TAMBAHKAN FUNGSI PROXY DI SINI
+  // 1. TAMBAHAN FUNGSI PROXY
   const getProxiedImageUrl = (url: string | undefined | null) => {
     if (!url) return "/kantor_desa.jpg";
     if (url.includes("i.ibb.co")) {
@@ -92,7 +92,7 @@ export default function AccommodationsPage() {
                 return (
                   <div key={accommodation.id} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                     <div className="relative h-48 overflow-hidden">
-                      {/* 2. UBAH PEMANGGILAN SRC GAMBAR DI SINI */}
+                      {/* 2. UBAH PEMANGGILAN SRC GAMBAR */}
                       <img
                         src={getProxiedImageUrl(accommodation.imageUrl)}
                         alt={accommodation.name}

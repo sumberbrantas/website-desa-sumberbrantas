@@ -19,6 +19,14 @@ const ProductsPage = () => {
   const { remove } = useProductActions();
   const { user } = useAuth();
 
+  const getProxiedImageUrl = (url?: string | null) => {
+    if (!url) return "/kantor_desa.jpg";
+    if (url.includes("i.ibb.co")) {
+      return `https://wsrv.nl/?url=${encodeURIComponent(url)}`;
+    }
+    return url;
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => setMounted(true), 100);
     return () => clearTimeout(timer);
@@ -48,15 +56,10 @@ const ProductsPage = () => {
 
   const handleEdit = (id: string) => router.push(`/dashboard/products/update?id=${id}`);
 
-  const getStatusBadge = (isActive: boolean) => (
-    isActive
-      ? <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Aktif</span>
-      : <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Nonaktif</span>
-  );
+  const getStatusBadge = (isActive: boolean) =>
+    isActive ? <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Aktif</span> : <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">Nonaktif</span>;
 
-  const getCategoryBadge = (category: string) => (
-    <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">{category || "Lainnya"}</span>
-  );
+  const getCategoryBadge = (category: string) => <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">{category || "Lainnya"}</span>;
 
   return (
     <div className="flex flex-col min-h-full">
@@ -78,9 +81,7 @@ const ProductsPage = () => {
               <button
                 key={status}
                 onClick={() => setStatusFilter(status as any)}
-                className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                  statusFilter === status ? "text-white shadow-md" : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${statusFilter === status ? "text-white shadow-md" : "bg-gray-100 text-gray-700 hover:bg-gray-200"}`}
                 style={statusFilter === status ? { backgroundColor: "var(--primary)" } : {}}
               >
                 {status === "all" ? "Semua" : status === "active" ? "Aktif" : "Nonaktif"}
@@ -108,7 +109,14 @@ const ProductsPage = () => {
               {products.map((product) => (
                 <div key={product.id} className="bg-gray-50 rounded-lg overflow-hidden hover:shadow-lg transition-all">
                   <div className="h-40 bg-gray-200 overflow-hidden">
-                    <img src={product.imageUrl || "/kantor_desa.jpg"} alt={product.name} className="w-full h-full object-cover" onError={(e) => { (e.target as HTMLImageElement).src = "/kantor_desa.jpg"; }} />
+                    <img
+                      src={getProxiedImageUrl(product.imageUrl)}
+                      alt={product.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = "/kantor_desa.jpg";
+                      }}
+                    />
                   </div>
                   <div className="p-4">
                     <div className="flex items-center gap-2 mb-2">
@@ -117,7 +125,9 @@ const ProductsPage = () => {
                     </div>
                     <h3 className="font-semibold text-lg mb-1 line-clamp-1">{product.name}</h3>
                     <p className="text-sm text-gray-600 mb-2 line-clamp-2">{product.description}</p>
-                    <p className="font-bold text-lg mb-3" style={{ color: "var(--primary)" }}>{formatProductPrice(product.price)}</p>
+                    <p className="font-bold text-lg mb-3" style={{ color: "var(--primary)" }}>
+                      {formatProductPrice(product.price)}
+                    </p>
                     <div className="flex gap-2">
                       <button onClick={() => handleEdit(product.id)} className="flex-1 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
                         <FiEdit2 size={16} />

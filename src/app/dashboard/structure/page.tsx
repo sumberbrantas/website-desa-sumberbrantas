@@ -17,6 +17,14 @@ const StructurePage = () => {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
+  const getProxiedImageUrl = (url?: string | null) => {
+    if (!url) return "/struktur-desa.png";
+    if (url.includes("i.ibb.co")) {
+      return `https://wsrv.nl/?url=${encodeURIComponent(url)}`;
+    }
+    return url;
+  };
+
   const { structures, loading, error, refetch, clearError } = useStructures();
   const { remove } = useStructureActions();
 
@@ -77,7 +85,7 @@ const StructurePage = () => {
         <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
           {value ? (
             <img
-              src={value}
+              src={getProxiedImageUrl(value)}
               alt="Structure"
               className="w-full h-full object-cover"
               onError={(e) => {
@@ -165,7 +173,6 @@ Belum ada struktur yang dibuat."
         </div>
       </div>
 
-
       <div className={`w-full bg-gray-100 py-4 md:py-4 smooth-transition ${mounted ? "smooth-reveal stagger-4" : "animate-on-load"}`}>
         <CreditsFooter variant="light" />
       </div>
@@ -174,4 +181,3 @@ Belum ada struktur yang dibuat."
 };
 
 export default StructurePage;
-

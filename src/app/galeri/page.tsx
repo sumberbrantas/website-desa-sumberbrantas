@@ -29,6 +29,14 @@ const GalleryPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const getProxiedImageUrl = (url?: string | null) => {
+    if (!url) return "/kantor_desa.jpg";
+    if (url.includes("i.ibb.co")) {
+      return `https://wsrv.nl/?url=${encodeURIComponent(url)}`;
+    }
+    return url;
+  };
+
   const categories = [
     { value: "all", label: "Semua" },
     { value: "umum", label: "Umum" },
@@ -235,7 +243,15 @@ const GalleryPage = () => {
                         onClick={() => openImageModal(image)}
                       >
                         <div className="aspect-square overflow-hidden">
-                          <img src={image.imageUrl} alt={image.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                          <img
+                            src={getProxiedImageUrl(image.imageUrl)}
+                            alt={image.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = "/kantor_desa.jpg";
+                            }}
+                          />
                         </div>
                         <div className="p-4">
                           <h3 className="font-semibold text-gray-900 mb-2 line-clamp-1">{image.title}</h3>

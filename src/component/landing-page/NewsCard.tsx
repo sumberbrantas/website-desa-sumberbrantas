@@ -18,6 +18,14 @@ interface NewsCardProps {
 }
 
 const NewsCard = ({ news, index, mounted }: NewsCardProps) => {
+  const getProxiedImageUrl = (url?: string | null) => {
+    if (!url) return "/kantor_desa.jpg";
+    if (url.includes("i.ibb.co")) {
+      return `https://wsrv.nl/?url=${encodeURIComponent(url)}`;
+    }
+    return url;
+  };
+
   const formatDate = (timestamp: any) => {
     if (!timestamp) return "";
     try {
@@ -29,28 +37,21 @@ const NewsCard = ({ news, index, mounted }: NewsCardProps) => {
   };
 
   return (
-    <Link
-      href={`/berita/${news.slug}`}
-      className={`card-earth overflow-hidden group cursor-pointer hover-lift ${
-        mounted ? "smooth-reveal" : "animate-on-load"
-      }`}
-      style={{ animationDelay: `${(index + 2) * 0.1}s` }}
-    >
+    <Link href={`/berita/${news.slug}`} className={`card-earth overflow-hidden group cursor-pointer hover-lift ${mounted ? "smooth-reveal" : "animate-on-load"}`} style={{ animationDelay: `${(index + 2) * 0.1}s` }}>
       <div className="aspect-video overflow-hidden">
         <img
-          src={news.imageUrl || "/kantor_desa.jpg"}
+          src={getProxiedImageUrl(news.imageUrl)}
           alt={news.title}
           className="w-full h-full object-cover group-hover:scale-105 smooth-transition"
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = "/kantor_desa.jpg";
+          }}
         />
       </div>
 
       <div className="p-4 md:p-6">
-        <h3 className="font-semibold text-earth-dark mb-2 md:mb-3 line-clamp-2 text-sm leading-relaxed smooth-transition group-hover:text-earth-accent">
-          {news.title}
-        </h3>
-        <p className="text-earth-muted text-xs mb-3 md:mb-4 line-clamp-3 leading-relaxed smooth-transition">
-          {news.excerpt || "Tidak ada excerpt"}
-        </p>
+        <h3 className="font-semibold text-earth-dark mb-2 md:mb-3 line-clamp-2 text-sm leading-relaxed smooth-transition group-hover:text-earth-accent">{news.title}</h3>
+        <p className="text-earth-muted text-xs mb-3 md:mb-4 line-clamp-3 leading-relaxed smooth-transition">{news.excerpt || "Tidak ada excerpt"}</p>
 
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
